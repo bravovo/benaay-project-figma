@@ -1,0 +1,27 @@
+{
+    "name": "back-end",
+    "version": "1.0.0",
+    "description": "",
+    "homepage": "https://github.com/bravovo/benaay-project-figma#readme",
+    "bugs": {
+        "url": "https://github.com/bravovo/benaay-project-figma/issues"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bravovo/benaay-project-figma.git"
+    },
+    "license": "ISC",
+    "author": "Bohdan Nyshchyi",
+    "type": "commonjs",
+    "main": "index.js",
+    "scripts": {
+        "dev": "nodemon index.js",
+        "start": "node index.js"
+    },
+    "dependencies": {
+        "express": "^5.2.1"
+    },
+    "devDependencies": {
+        "nodemon": "^3.1.11"
+    }
+}
