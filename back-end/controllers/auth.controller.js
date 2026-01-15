@@ -1,7 +1,20 @@
-exports.postLogin = (req, res, next) => {
+import { generateAccessToken, generateRefreshToken } from "../utils/jwt.js";
+
+export function postLogin(req, res, next) {
     try {
-        const { username, password } = req.body;
+        const { email, password } = req.body;
+
+        const refreshToken = generateRefreshToken(email);
+        const accessToken = generateAccessToken(email);
+
+        if (!accessToken || !refreshToken) {
+            throw new Error("Token generation failed");
+        }
+
+        return res
+            .status(200)
+            .json({ success: true, accessToken, refreshToken });
     } catch (error) {
         return next(error);
     }
-};
+}

@@ -1,13 +1,12 @@
-const express = require("express");
+import express, { json, urlencoded } from "express";
+import { NODE_ENV, PORT } from "./config/env.js";
 
-const authRouter = require("./routes/auth.route");
+import authRouter from "./routes/auth.route.js";
 
 const app = express();
 
-const PORT = 3000;
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
+app.use(json());
+app.use(urlencoded({ extended: true }));
 
 app.use("/api/auth", authRouter);
 
@@ -17,5 +16,6 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
+    console.log(`\n${NODE_ENV} environment`);
     console.log(`Server is running on http://localhost:${PORT}`);
 });
