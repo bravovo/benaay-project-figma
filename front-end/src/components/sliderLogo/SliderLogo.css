@@ -1,0 +1,15 @@
+.slider-link {
+    height: 38px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.slider-link span {
+    font-weight: 700;
+    font-size: 25.33px;
+    line-height: 19px;
+    color: #0a0d12;
+}

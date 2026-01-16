@@ -1,16 +1,52 @@
 import "./ApprovedSuppliers.css";
 
+import logo1 from "../../assets/icons/Logomark-1.svg";
+import logo2 from "../../assets/icons/Logomark-2.svg";
+import logo3 from "../../assets/icons/Logomark-3.svg";
+import logo4 from "../../assets/icons/Logomark-4.svg";
+import logo5 from "../../assets/icons/Logomark-5.svg";
+import logo6 from "../../assets/icons/Logomark-6.svg";
+import logo7 from "../../assets/icons/Logomark-7.svg";
+import SliderLogo from "../sliderLogo/SliderLogo";
+import { Container } from "../layout/index";
+
+const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo5, logo3];
+
+const suppliers = [...logos, ...logos].map((logo, index) => ({
+    imgSrc: logo,
+    altText: `Supplier ${index + 1} Logo`,
+    linkUrl: "#",
+    logoTitle: "Logo",
+}));
+
 function ApprovedSuppliers() {
     return (
         <section className="suppliers-section">
-            <div className="suppliers-content">
-                <h2 className="suppliers-title">Our Approved Suppliers</h2>
-                <p className="suppliers-para">
-                    We work only with verified suppliers to ensure quality,
-                    reliability, and fair pricing for every order
-                </p>
+            <Container>
+                <div className="suppliers-content">
+                    <h2 className="suppliers-title">Our Approved Suppliers</h2>
+                    <p className="suppliers-para">
+                        We work only with verified suppliers to ensure quality,
+                        reliability, and fair pricing for every order
+                    </p>
+                </div>
+            </Container>
+            <div className="logo-slider-container">
+                <div className="logo-slider">
+                    {suppliers &&
+                        suppliers.map((sup) => {
+                            return (
+                                <SliderLogo
+                                    key={sup.altText}
+                                    imgSrc={sup.imgSrc}
+                                    altText={sup.altText}
+                                    logoTitle={sup.logoTitle}
+                                    linkUrl={sup.linkUrl}
+                                />
+                            );
+                        })}
+                </div>
             </div>
-            <div></div>
         </section>
     );
 }

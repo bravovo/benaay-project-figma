@@ -1,6 +1,10 @@
 .suppliers-section {
     height: 378px;
-    padding: 80px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
 }
 
 .suppliers-content {
@@ -23,4 +27,30 @@
     line-height: 30px;
     font-weight: 400;
     color: #535862;
+}
+
+.logo-slider-container {
+    width: 100%;
+    overflow: hidden;
+}
+
+.logo-slider {
+    display: flex;
+    width: max-content;
+    gap: 64px;
+    animation: scroll 30s linear infinite;
+}
+
+.logo-slider a {
+    flex-shrink: 0;
+    height: 38px;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
 }
