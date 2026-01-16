@@ -1,0 +1,22 @@
+.lang-select-container {
+    position: relative;
+    display: inline-block;
+}
+
+.lang-select-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    background: transparent;
+    border: none;
+    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.lang-select-button:focus {
+    outline: none;
+}
