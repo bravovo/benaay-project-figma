@@ -1,11 +1,34 @@
 import hammer from "./assets/icons/hammer.svg";
 import search from "./assets/icons/search.svg";
 import shoppingCart from "./assets/icons/shopping-cart.svg";
+import mainImg from "./assets/images/main-img.jpg";
 import "./App.css";
 
 import { Layout, Container } from "./components/layout";
 import LanguageSelect from "./components/langSelect/LanguageSelect";
 import IconButton from "./components/iconButton/IconButton";
+import Button from "./components/button/Button";
+import ApprovedSuppliers from "./components/approvedSuppliers/ApprovedSuppliers";
+
+const transparentBtn = {
+    fontWeight: 500,
+    fontSize: "16px",
+    color: "#ffffff",
+    padding: "12px 24px",
+    backgroundColor: "transparent",
+    border: "1px solid #ffffff",
+    borderRadius: "8px",
+};
+
+const coloredBtn = {
+    width: "200px",
+    fontSize: "16px",
+    color: "#ffffff",
+    padding: "12px 24px",
+    backgroundColor: "#206BB6",
+    border: "1px solid #206BB6",
+    borderRadius: "8px",
+};
 
 function App() {
     return (
@@ -42,24 +65,56 @@ function App() {
                                 onClick={() => {}}
                             />
                             <LanguageSelect />
-                            <button className="login-button">Log In</button>
+                            <Button
+                                title="Log In"
+                                onClick={() => {}}
+                                styles={transparentBtn}
+                            />
                         </div>
                     </div>
                 </Container>
             </header>
 
-            {/* Regular content with Container padding */}
             <main className="main">
-                <Container>
-                    <section className="content-section">
-                        <h2>Container Component</h2>
-                        <p>
-                            This content is wrapped in a Container component
-                            with 80px horizontal padding. The Container ensures
-                            consistent spacing for regular page content.
-                        </p>
-                    </section>
+                <section
+                    className="content-section content-section-container"
+                    style={{
+                        backgroundImage: `url(${mainImg})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                    }}
+                >
+                    <Container>
+                        <div className="main-section-content">
+                            <div className="main-section-text">
+                                <h2>Bannai - Building Materials Market</h2>
+                                <p>
+                                    B2B platform specializing in plumbing and
+                                    building materials compare prices and order
+                                    from certified suppliers
+                                </p>
+                            </div>
+                            <div className="main-section-buttons">
+                                <Button
+                                    title="Start now"
+                                    onClick={() => {}}
+                                    styles={coloredBtn}
+                                />
+                                <Button
+                                    title="Browse the catalog"
+                                    onClick={() => {}}
+                                    styles={{
+                                        ...transparentBtn,
+                                        width: "200px",
+                                    }}
+                                />
+                            </div>
+                        </div>
+                    </Container>
+                </section>
+                <ApprovedSuppliers />
 
+                <Container>
                     <section className="content-section">
                         <h2>Inter Font</h2>
                         <p style={{ fontWeight: 400 }}>

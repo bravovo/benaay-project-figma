@@ -1,0 +1,26 @@
+.suppliers-section {
+    height: 378px;
+    padding: 80px;
+}
+
+.suppliers-content {
+    width: 612px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+}
+
+.suppliers-title {
+    font-size: 36px;
+    line-height: 44px;
+    font-weight: 600;
+    color: #181d27;
+}
+
+.suppliers-para {
+    font-size: 20px;
+    line-height: 30px;
+    font-weight: 400;
+    color: #535862;
+}
