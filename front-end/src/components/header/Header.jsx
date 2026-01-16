@@ -9,6 +9,7 @@ import LanguageSelect from "../langSelect/LanguageSelect";
 import hammer from "../../assets/icons/hammer.svg";
 import search from "../../assets/icons/search.svg";
 import shoppingCart from "../../assets/icons/shopping-cart.svg";
+import { languages } from "../../assets/constants";
 
 function Header() {
     return (
@@ -43,7 +44,7 @@ function Header() {
                             title="Shopping cart icon"
                             onClick={() => {}}
                         />
-                        <LanguageSelect />
+                        <LanguageSelect languages={languages} />
                         <Button
                             title="Log In"
                             onClick={() => {}}

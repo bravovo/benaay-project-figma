@@ -1,10 +1,11 @@
 import "./App.css";
 
-import { Layout, Container } from "./components/layout";
+import { Layout } from "./components/layout";
 import ApprovedSuppliers from "./components/approvedSuppliers/ApprovedSuppliers";
 
 import Header from "./components/header/Header";
 import MainSection from "./components/mainSection/MainSection";
+import OurAdvantages from "./components/ourAdvantages/OurAdvantages";
 
 function App() {
     return (
@@ -13,6 +14,7 @@ function App() {
             <main className="main">
                 <MainSection />
                 <ApprovedSuppliers />
+                <OurAdvantages />
 
                 {/* <Container>
                     <section className="content-section">

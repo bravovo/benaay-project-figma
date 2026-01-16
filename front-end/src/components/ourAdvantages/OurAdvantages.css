@@ -1,0 +1,14 @@
+.advantages-section {
+    height: 482px;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+}
+
+.advantages-container {
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+}

@@ -1,0 +1,32 @@
+.advantage {
+    width: 411px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 24px;
+}
+
+.advantage-icon {
+    width: 72px;
+    height: 72px;
+}
+
+.advantage-content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.advantage-content h3 {
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 28px;
+    color: #111827;
+}
+
+.advantage-content p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #535862;
+}
