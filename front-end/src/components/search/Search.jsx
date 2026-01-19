@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./Search.css";
 import { Search as SearchIcon } from "lucide-react";
 
-function Search({ isOpen, onClose }) {
+function Search({ isOpen, onClose, buttonRef }) {
     const searchRef = useRef(null);
 
     useEffect(() => {
@@ -12,7 +12,9 @@ function Search({ isOpen, onClose }) {
         const handleClickOutside = (event) => {
             if (
                 searchRef.current &&
-                !searchRef.current.contains(event.target)
+                !searchRef.current.contains(event.target) &&
+                buttonRef.current &&
+                !buttonRef.current.contains(event.target)
             ) {
                 onClose();
             }
@@ -23,7 +25,7 @@ function Search({ isOpen, onClose }) {
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [isOpen, onClose]);
+    }, [isOpen, onClose, buttonRef]);
 
     if (!isOpen) return null;
 

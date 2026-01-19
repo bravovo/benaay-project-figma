@@ -45,6 +45,7 @@ function Advantages() {
                     {advantages &&
                         advantages.map((ad) => (
                             <Advantage
+                                key={ad.title}
                                 icon={ad.icon}
                                 title={ad.title}
                                 description={ad.description}

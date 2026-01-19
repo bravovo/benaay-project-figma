@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useRef } from "react";
 import "./Header.css";
 
 import { transparentBtn } from "../../styles/styledObjects";
@@ -14,6 +14,7 @@ import shoppingCart from "../../assets/icons/shopping-cart.svg";
 import { languages } from "../../assets/constants";
 
 function Header() {
+    const searchButtonRef = useRef(null);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     const toggleSearch = useCallback(() => {
@@ -53,6 +54,7 @@ function Header() {
                                 icon={search}
                                 title="Search Icon"
                                 onClick={toggleSearch}
+                                ref={searchButtonRef}
                             />
                             <IconButton
                                 icon={shoppingCart}
@@ -69,7 +71,11 @@ function Header() {
                     </div>
                 </Container>
             </header>
-            <Search isOpen={isSearchOpen} onClose={closeSearch} />
+            <Search
+                isOpen={isSearchOpen}
+                onClose={closeSearch}
+                buttonRef={searchButtonRef}
+            />
         </>
     );
 }
