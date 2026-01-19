@@ -1,6 +1,6 @@
 .search-overlay {
     position: fixed;
-    top: 72px; /* Position below the header which has height 72px */
+    top: var(--header-height, 72px); /* Position below the header */
     left: 0;
     right: 0;
     z-index: 999;

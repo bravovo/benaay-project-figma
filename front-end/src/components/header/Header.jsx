@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import "./Header.css";
 
 import { transparentBtn } from "../../styles/styledObjects";
@@ -20,9 +20,9 @@ function Header() {
         setIsSearchOpen(!isSearchOpen);
     };
 
-    const closeSearch = () => {
+    const closeSearch = useCallback(() => {
         setIsSearchOpen(false);
-    };
+    }, []);
 
     return (
         <>
