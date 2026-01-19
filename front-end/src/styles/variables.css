@@ -7,6 +7,31 @@
     --additional-color: #fbf2ef;
     --footer-main-color: #4b5563;
     --footer-add-color: #6b7280;
+    
+    /* Text Colors */
+    --color-text-primary: #333;
+    --color-text-dark: #212529;
+    --color-text-medium: #495057;
+    --color-text-gray: #6c757d;
+    --color-text-light-gray: #9ca3af;
+    --color-text-white: #ffffff;
+    --color-text-off-white: #cdcdcc;
+    --color-text-very-dark: #0a0d12;
+    --color-text-charcoal: #111827;
+    --color-text-darker: #030712;
+    
+    /* Background Colors */
+    --color-bg-white: #ffffff;
+    --color-bg-light-gray: #e9ecef;
+    --color-bg-dark-blue: #1a3b60;
+    --color-bg-transparent: transparent;
+    
+    /* Border Colors */
+    --color-border-light: #e5e7eb;
+    --color-border-lighter: #f3f4f6;
+    
+    /* Shadow Colors */
+    --color-shadow-dark: rgba(0, 0, 0, 0.16);
 
     /* Layout */
     --header-height: 72px;
