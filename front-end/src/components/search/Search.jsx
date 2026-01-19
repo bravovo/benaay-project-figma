@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import PropTypes from "prop-types";
 import "./Search.css";
 import searchIcon from "../../assets/icons/search.svg";
 
@@ -6,15 +7,15 @@ function Search({ isOpen, onClose }) {
     const searchRef = useRef(null);
 
     useEffect(() => {
+        if (!isOpen) return;
+
         const handleClickOutside = (event) => {
             if (searchRef.current && !searchRef.current.contains(event.target)) {
                 onClose();
             }
         };
 
-        if (isOpen) {
-            document.addEventListener("mousedown", handleClickOutside);
-        }
+        document.addEventListener("mousedown", handleClickOutside);
 
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
@@ -36,6 +37,8 @@ function Search({ isOpen, onClose }) {
                         type="text"
                         className="search-input"
                         placeholder="Search..."
+                        aria-label="Search products"
+                        role="searchbox"
                         autoFocus
                     />
                 </div>
@@ -43,5 +46,10 @@ function Search({ isOpen, onClose }) {
         </div>
     );
 }
+
+Search.propTypes = {
+    isOpen: PropTypes.bool.isRequired,
+    onClose: PropTypes.func.isRequired,
+};
 
 export default Search;
