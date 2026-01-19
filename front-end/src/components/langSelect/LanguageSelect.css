@@ -9,13 +9,13 @@
     align-items: center;
     gap: 8px;
 
-    background: transparent;
+    background: var(--color-bg-transparent);
     border: none;
     cursor: pointer;
 
     font-size: 14px;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--color-text-white);
 }
 
 .lang-select-button:focus {
@@ -29,8 +29,8 @@
     right: 0;
     width: 128px;
     height: 120px;
-    border: 1px solid #f3f4f6;
-    background-color: #ffffff;
+    border: 1px solid var(--color-border-lighter);
+    background-color: var(--color-bg-white);
     border-radius: 16px;
 
     display: flex;
@@ -51,5 +51,5 @@
     font-size: 16px;
     font-weight: 400;
     line-height: 150%;
-    color: #030712;
+    color: var(--color-text-darker);
 }

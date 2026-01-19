@@ -11,5 +11,5 @@
     font-weight: 700;
     font-size: 25.33px;
     line-height: 19px;
-    color: #0a0d12;
+    color: var(--color-text-very-dark);
 }

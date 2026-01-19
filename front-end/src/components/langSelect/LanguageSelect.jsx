@@ -34,8 +34,8 @@ function LanguageSelect({ languages }) {
                                     style={{
                                         backgroundColor:
                                             lang.short === selectedLanguage
-                                                ? "#F3F4F6"
-                                                : "#FFFFFF",
+                                                ? "var(--color-border-lighter)"
+                                                : "var(--color-bg-white)",
                                     }}
                                 >
                                     {lang.name}
