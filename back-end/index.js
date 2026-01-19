@@ -1,9 +1,12 @@
 import express, { json, urlencoded } from "express";
 import { NODE_ENV, PORT } from "./config/env.js";
+import cors from "cors";
 
 import authRouter from "./routes/auth.route.js";
 
 const app = express();
+
+app.use(cors());
 
 app.use(json());
 app.use(urlencoded({ extended: true }));

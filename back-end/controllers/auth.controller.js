@@ -11,9 +11,12 @@ export function postLogin(req, res, next) {
             throw new Error("Token generation failed");
         }
 
-        return res
-            .status(200)
-            .json({ success: true, accessToken, refreshToken });
+        return res.status(200).json({
+            success: true,
+            accessToken,
+            refreshToken,
+            email,
+        });
     } catch (error) {
         return next(error);
     }

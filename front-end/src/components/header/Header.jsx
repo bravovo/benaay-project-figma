@@ -16,13 +16,24 @@ import ModalForm from "../modalForm/ModalForm";
 
 import eye from "../../assets/icons/eye.svg";
 
+import axios from "axios";
+
 function Header() {
     const [isLoginFormOpened, setIsLoginFormOpened] = useState(false);
+    const [loginData, setLoginData] = useState({ login: "", password: "" });
 
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     const searchButtonRef = useRef(null);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setLoginData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
+    };
 
     const toggleSearch = useCallback(() => {
         setIsSearchOpen((prev) => !prev);
@@ -32,9 +43,24 @@ function Header() {
         setIsSearchOpen(false);
     }, []);
 
-    const submitForm = (e) => {
+    const submitForm = async (e) => {
         e.preventDefault();
-        console.log("works");
+
+        try {
+            const response = await axios.post(
+                `${import.meta.env.VITE_API_SERVER_URL}/api/auth/login`,
+                {
+                    email: loginData.login,
+                    password: loginData.password,
+                }
+            );
+
+            if (response.data.success) {
+                console.log(response.data);
+            }
+        } catch (error) {
+            console.error("Login failed:", error);
+        }
     };
 
     return (
@@ -106,6 +132,7 @@ function Header() {
                         name="login"
                         placeholder="Login or e-mail"
                         className="login-input"
+                        onChange={handleInputChange}
                     />
                     <div className="password-input-container">
                         <input
@@ -113,6 +140,7 @@ function Header() {
                             name="password"
                             placeholder="Enter your password"
                             className="password"
+                            onChange={handleInputChange}
                         />
                         <button
                             type="button"
