@@ -6,6 +6,7 @@ import ApprovedSuppliers from "./components/approvedSuppliers/ApprovedSuppliers"
 import Header from "./components/header/Header";
 import MainSection from "./components/mainSection/MainSection";
 import OurAdvantages from "./components/ourAdvantages/OurAdvantages";
+import MainCategories from "./components/mainCategories/MainCategories";
 
 function App() {
     return (
@@ -15,6 +16,7 @@ function App() {
                 <MainSection />
                 <ApprovedSuppliers />
                 <OurAdvantages />
+                <MainCategories />
 
                 {/* <Container>
                     <section className="content-section">

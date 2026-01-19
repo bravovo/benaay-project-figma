@@ -9,6 +9,7 @@ import logo6 from "../../assets/icons/Logomark-6.svg";
 import logo7 from "../../assets/icons/Logomark-7.svg";
 import SliderLogo from "../sliderLogo/SliderLogo";
 import SectionText from "../sectionText/SectionText";
+import { Container } from "../layout";
 
 const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo5, logo3];
 
@@ -22,12 +23,14 @@ const suppliers = [...logos, ...logos].map((logo, index) => ({
 function ApprovedSuppliers() {
     return (
         <section className="suppliers-section">
-            <SectionText
-                title="Our Approved Suppliers"
-                paragraph="We work only with verified suppliers to ensure quality,
+            <Container>
+                <SectionText
+                    title="Our Approved Suppliers"
+                    paragraph="We work only with verified suppliers to ensure quality,
                         reliability, and fair pricing for every order"
-                width={612}
-            />
+                    width={612}
+                />
+            </Container>
             <div className="logo-slider-container">
                 <div className="logo-slider">
                     {suppliers &&

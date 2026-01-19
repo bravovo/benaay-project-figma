@@ -8,13 +8,14 @@
 .section-title {
     font-size: 36px;
     line-height: 44px;
+    letter-spacing: -2%;
     font-weight: 600;
-    color: #181d27;
+    color: var(--color-title);
 }
 
 .section-para {
     font-size: 20px;
     line-height: 30px;
     font-weight: 400;
-    color: #535862;
+    color: var(--color-paragraph-addition);
 }

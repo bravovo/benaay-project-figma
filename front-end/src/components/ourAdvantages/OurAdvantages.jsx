@@ -32,11 +32,13 @@ const advantages = [
 function Advantages() {
     return (
         <section className="advantages-section">
-            <SectionText
-                title="Our advantages"
-                paragraph="We combine quality, speed and care so that you get the best result without unnecessary effort."
-                width={900}
-            />
+            <Container>
+                <SectionText
+                    title="Our advantages"
+                    paragraph="We combine quality, speed and care so that you get the best result without unnecessary effort."
+                    width={900}
+                />
+            </Container>
             <Container>
                 <div className="advantages-container">
                     {advantages &&
