@@ -29,9 +29,6 @@
     align-items: center;
     gap: 10px;
     line-height: 24px;
-}
-
-.header-title {
     color: #ffffff;
     font-weight: 600;
     font-size: 24px;

@@ -8,6 +8,7 @@ import MainSection from "./components/mainSection/MainSection";
 import OurAdvantages from "./components/ourAdvantages/OurAdvantages";
 import MainCategories from "./components/mainCategories/MainCategories";
 import GetStarted from "./components/getStarted/GetStarted";
+import Footer from "./components/footer/Footer";
 
 function App() {
     return (
@@ -20,6 +21,7 @@ function App() {
                 <MainCategories />
                 <GetStarted />
             </main>
+            <Footer />
         </Layout>
     );
 }

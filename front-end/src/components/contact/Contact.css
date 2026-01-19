@@ -1,0 +1,13 @@
+.contact-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    text-decoration: none;
+    color: var(--footer-main-color);
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 150%;
+}

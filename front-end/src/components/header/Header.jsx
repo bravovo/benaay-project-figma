@@ -16,15 +16,17 @@ function Header() {
         <header className="header">
             <Container>
                 <div className="header-container">
-                    <a href="#" style={{ textDecoration: "none" }}>
-                        <div className="icon-container">
-                            <img
-                                src={hammer}
-                                alt="Hammer Icon"
-                                className="header-icon"
-                            />
-                            <h2 className="header-title">Bennay</h2>
-                        </div>
+                    <a
+                        href="#"
+                        style={{ textDecoration: "none" }}
+                        className="icon-container"
+                    >
+                        <img
+                            src={hammer}
+                            alt="Hammer Icon"
+                            className="header-icon"
+                        />
+                        Bennay
                     </a>
                     <div className="header-links">
                         <a href="#">Link 1</a>
