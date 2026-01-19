@@ -12,13 +12,13 @@ export const languages = [
 export const categories = [
     {
         styles: {
-            container: { backgroundColor: "#DCEBF9" },
+            container: { backgroundColor: "var(--category-plumbing-bg)" },
             link: {
-                color: "#206BB6",
-                border: "1px solid #206BB6",
-                arrow: { color: "#206BB6" },
+                color: "var(--category-plumbing-primary)",
+                border: "1px solid var(--category-plumbing-primary)",
+                arrow: { color: "var(--category-plumbing-primary)" },
             },
-            number: { backgroundColor: "#B9D6F3" },
+            number: { backgroundColor: "var(--category-plumbing-secondary)" },
         },
         title: "Plumbing connections",
         description:
@@ -27,13 +27,13 @@ export const categories = [
     },
     {
         styles: {
-            container: { backgroundColor: "#DFE5DC" },
+            container: { backgroundColor: "var(--category-upvc-bg)" },
             link: {
-                color: "#586A4E",
-                border: "1px solid #586A4E",
-                arrow: { color: "#586A4E" },
+                color: "var(--category-upvc-primary)",
+                border: "1px solid var(--category-upvc-primary)",
+                arrow: { color: "var(--category-upvc-primary)" },
             },
-            number: { backgroundColor: "#CAD4C4" },
+            number: { backgroundColor: "var(--category-upvc-secondary)" },
         },
         title: "UPVC fittings",
         description:
@@ -42,13 +42,13 @@ export const categories = [
     },
     {
         styles: {
-            container: { backgroundColor: "#DBD4ED" },
+            container: { backgroundColor: "var(--category-ppr-bg)" },
             link: {
-                color: "#6348AD",
-                border: "1px solid #6348AD",
-                arrow: { color: "#6348AD" },
+                color: "var(--category-ppr-primary)",
+                border: "1px solid var(--category-ppr-primary)",
+                arrow: { color: "var(--category-ppr-primary)" },
             },
-            number: { backgroundColor: "#C2B7E1" },
+            number: { backgroundColor: "var(--category-ppr-secondary)" },
         },
         title: "PPR fittings",
         description:

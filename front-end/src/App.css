@@ -5,7 +5,7 @@
 
 /* Full-Width Section */
 .full-width-section {
-    background-color: #e9ecef;
+    background-color: var(--color-bg-light-gray);
     padding: 60px 0;
     margin: 40px 0;
     width: 100%;
@@ -19,12 +19,12 @@
     font-size: 1.875rem;
     font-weight: 600;
     margin-bottom: 1rem;
-    color: #212529;
+    color: var(--color-text-dark);
 }
 
 .full-width-section p {
     font-size: 1rem;
-    color: #495057;
+    color: var(--color-text-medium);
     max-width: 600px;
     margin: 0 auto;
 }
