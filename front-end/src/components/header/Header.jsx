@@ -16,9 +16,9 @@ import { languages } from "../../assets/constants";
 function Header() {
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-    const toggleSearch = () => {
-        setIsSearchOpen(!isSearchOpen);
-    };
+    const toggleSearch = useCallback(() => {
+        setIsSearchOpen((prev) => !prev);
+    }, []);
 
     const closeSearch = useCallback(() => {
         setIsSearchOpen(false);
