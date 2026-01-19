@@ -32,6 +32,17 @@
     
     /* Shadow Colors */
     --color-shadow-dark: rgba(0, 0, 0, 0.16);
+    
+    /* Category Theme Colors */
+    --category-plumbing-bg: #DCEBF9;
+    --category-plumbing-primary: #206BB6;
+    --category-plumbing-secondary: #B9D6F3;
+    --category-upvc-bg: #DFE5DC;
+    --category-upvc-primary: #586A4E;
+    --category-upvc-secondary: #CAD4C4;
+    --category-ppr-bg: #DBD4ED;
+    --category-ppr-primary: #6348AD;
+    --category-ppr-secondary: #C2B7E1;
 
     /* Layout */
     --header-height: 72px;

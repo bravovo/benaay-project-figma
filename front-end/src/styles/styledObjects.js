@@ -1,18 +1,18 @@
 export const transparentBtn = {
     fontWeight: 500,
     fontSize: "16px",
-    color: "#ffffff",
+    color: "var(--color-text-white)",
     padding: "12px 24px",
-    backgroundColor: "transparent",
-    border: "1px solid #ffffff",
+    backgroundColor: "var(--color-bg-transparent)",
+    border: "1px solid var(--color-text-white)",
     borderRadius: "8px",
 };
 
 export const coloredBtn = {
     fontSize: "16px",
-    color: "#ffffff",
+    color: "var(--color-text-white)",
     padding: "12px 24px",
-    backgroundColor: "#206BB6",
-    border: "1px solid #206BB6",
+    backgroundColor: "var(--button-main-color)",
+    border: "1px solid var(--button-main-color)",
     borderRadius: "8px",
 };

@@ -31,7 +31,7 @@ function Search({ isOpen, onClose }) {
         <div className="search-overlay">
             <div className="search-container" ref={searchRef}>
                 <div className="search-input-wrapper">
-                    <SearchIcon size={20} color="#6B7280" />
+                    <SearchIcon size={20} color="var(--footer-add-color)" />
                     <input
                         type="text"
                         className="search-input"
