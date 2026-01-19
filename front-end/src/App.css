@@ -3,6 +3,10 @@
     flex: 1;
 }
 
+body.modal-open {
+    overflow: hidden;
+}
+
 /* Full-Width Section */
 .full-width-section {
     background-color: var(--color-bg-light-gray);

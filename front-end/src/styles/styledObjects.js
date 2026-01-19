@@ -6,6 +6,7 @@ export const transparentBtn = {
     backgroundColor: "var(--color-bg-transparent)",
     border: "1px solid var(--color-text-white)",
     borderRadius: "8px",
+    height: "48px",
 };
 
 export const coloredBtn = {
@@ -15,4 +16,5 @@ export const coloredBtn = {
     backgroundColor: "var(--button-main-color)",
     border: "1px solid var(--button-main-color)",
     borderRadius: "8px",
+    height: "48px",
 };

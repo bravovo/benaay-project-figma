@@ -26,8 +26,8 @@
     position: absolute;
     padding: 12px;
     top: 30px;
-    right: 0;
     width: 128px;
+    right: -50%;
     height: 120px;
     border: 1px solid var(--color-border-lighter);
     background-color: var(--color-bg-white);
@@ -38,6 +38,7 @@
     justify-content: center;
     align-items: center;
     gap: 4px;
+    box-shadow: 0px 24px 120px 0px #00000029;
 }
 
 .opened-selection button {

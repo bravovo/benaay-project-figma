@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from "react";
 import "./Header.css";
 
-import { transparentBtn } from "../../styles/styledObjects";
+import { coloredBtn, transparentBtn } from "../../styles/styledObjects";
 import { Container } from "../layout";
 import IconButton from "../iconButton/IconButton";
 import Button from "../button/Button";
@@ -12,8 +12,15 @@ import hammer from "../../assets/icons/hammer.svg";
 import search from "../../assets/icons/search.svg";
 import shoppingCart from "../../assets/icons/shopping-cart.svg";
 import { languages } from "../../assets/constants";
+import ModalForm from "../modalForm/ModalForm";
+
+import eye from "../../assets/icons/eye.svg";
 
 function Header() {
+    const [isLoginFormOpened, setIsLoginFormOpened] = useState(false);
+
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
     const searchButtonRef = useRef(null);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
@@ -24,6 +31,11 @@ function Header() {
     const closeSearch = useCallback(() => {
         setIsSearchOpen(false);
     }, []);
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        console.log("works");
+    };
 
     return (
         <>
@@ -64,7 +76,9 @@ function Header() {
                             <LanguageSelect languages={languages} />
                             <Button
                                 title="Log In"
-                                onClick={() => {}}
+                                onClick={() => {
+                                    setIsLoginFormOpened(true);
+                                }}
                                 styles={transparentBtn}
                             />
                         </div>
@@ -76,6 +90,62 @@ function Header() {
                 onClose={closeSearch}
                 buttonRef={searchButtonRef}
             />
+            <ModalForm
+                isOpen={isLoginFormOpened}
+                onSubmit={submitForm}
+                title={"Enter the office"}
+                description={
+                    "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id."
+                }
+                onClose={() => setIsLoginFormOpened(false)}
+                isClosable={true}
+            >
+                <div className="login-form-input">
+                    <input
+                        type="text"
+                        name="login"
+                        placeholder="Login or e-mail"
+                        className="login-input"
+                    />
+                    <div className="password-input-container">
+                        <input
+                            type={isPasswordVisible ? "text" : "password"}
+                            name="password"
+                            placeholder="Enter your password"
+                            className="password"
+                        />
+                        <button
+                            type="button"
+                            className="password-toggle"
+                            onClick={() =>
+                                setIsPasswordVisible((prev) => !prev)
+                            }
+                            aria-label={
+                                isPasswordVisible
+                                    ? "Hide password"
+                                    : "Show password"
+                            }
+                        >
+                            <img src={eye} alt="See password" />
+                        </button>
+                    </div>
+                    <a href="#" className="forgot-pass-link">
+                        Forgot your password?
+                    </a>
+                </div>
+                <div className="login-form-controls">
+                    <Button
+                        className="log-in-form-button"
+                        styles={{ ...coloredBtn, width: 364 }}
+                        title={"Sign in"}
+                        onClick={() => {}}
+                    />
+                    <a href="#" className="register-link">
+                        Don't have an account yet?
+                        <span className="register-span"> Register</span>
+                    </a>
+                </div>
+            </ModalForm>
         </>
     );
 }
