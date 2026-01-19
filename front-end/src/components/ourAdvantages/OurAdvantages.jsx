@@ -37,6 +37,7 @@ function Advantages() {
                     title="Our advantages"
                     paragraph="We combine quality, speed and care so that you get the best result without unnecessary effort."
                     width={900}
+                    gap={20}
                 />
             </Container>
             <Container>

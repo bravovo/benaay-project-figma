@@ -30,7 +30,7 @@ function MainSection() {
                         <Button
                             title="Start now"
                             onClick={() => {}}
-                            styles={coloredBtn}
+                            styles={{ ...coloredBtn, width: "200px" }}
                         />
                         <Button
                             title="Browse the catalog"

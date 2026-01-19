@@ -25,10 +25,11 @@ function ApprovedSuppliers() {
         <section className="suppliers-section">
             <Container>
                 <SectionText
-                    title="Our Approved Suppliers"
+                    title="Our approved suppliers"
                     paragraph="We work only with verified suppliers to ensure quality,
                         reliability, and fair pricing for every order"
                     width={612}
+                    gap={12}
                 />
             </Container>
             <div className="logo-slider-container">

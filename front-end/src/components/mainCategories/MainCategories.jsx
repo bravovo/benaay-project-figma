@@ -10,9 +10,10 @@ function MainCategories() {
         <section className="main-cats-section">
             <Container>
                 <SectionText
-                    title="Main Categories"
+                    title="Main categories"
                     paragraph="Quickly find the materials you need. Choose a category and explore ready offers from trusted suppliers"
                     width={980}
+                    gap={20}
                 />
             </Container>
             <Container>

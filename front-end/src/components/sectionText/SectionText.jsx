@@ -1,10 +1,8 @@
 import "./SectionText.css";
 
-import { Container } from "../layout/index";
-
-function SectionText({ title, paragraph, width }) {
+function SectionText({ title, paragraph, width, gap }) {
     return (
-        <div className="section-content" style={{ width }}>
+        <div className="section-content" style={{ width, gap }}>
             <h2 className="section-title">{title}</h2>
             <p className="section-para">{paragraph}</p>
         </div>

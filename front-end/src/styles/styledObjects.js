@@ -9,7 +9,6 @@ export const transparentBtn = {
 };
 
 export const coloredBtn = {
-    width: "200px",
     fontSize: "16px",
     color: "#ffffff",
     padding: "12px 24px",
