@@ -1,7 +1,7 @@
 import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import "./Search.css";
-import searchIcon from "../../assets/icons/search.svg";
+import { Search as SearchIcon } from "lucide-react";
 
 function Search({ isOpen, onClose }) {
     const searchRef = useRef(null);
@@ -10,7 +10,10 @@ function Search({ isOpen, onClose }) {
         if (!isOpen) return;
 
         const handleClickOutside = (event) => {
-            if (searchRef.current && !searchRef.current.contains(event.target)) {
+            if (
+                searchRef.current &&
+                !searchRef.current.contains(event.target)
+            ) {
                 onClose();
             }
         };
@@ -28,11 +31,7 @@ function Search({ isOpen, onClose }) {
         <div className="search-overlay">
             <div className="search-container" ref={searchRef}>
                 <div className="search-input-wrapper">
-                    <img
-                        src={searchIcon}
-                        alt="Search"
-                        className="search-input-icon"
-                    />
+                    <SearchIcon size={20} color="#6B7280" />
                     <input
                         type="text"
                         className="search-input"
