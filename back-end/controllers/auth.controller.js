@@ -121,6 +121,7 @@ export async function postRefresh(req, res, next) {
         const newAccessToken = generateAccessToken(refreshResult.email);
 
         if (!newAccessToken) {
+            console.error("Failed to generate access token for user:", refreshResult.email);
             return res.status(500).json({
                 success: false,
                 message: "Failed to generate new access token",

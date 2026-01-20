@@ -24,7 +24,7 @@ export const checkUserAccess = (req, res, next) => {
 
             if (!refreshToken) {
                 return res.status(401).json({ 
-                    message: "Access token expired and no refresh token provided" 
+                    message: "Authentication required" 
                 });
             }
 
@@ -33,7 +33,7 @@ export const checkUserAccess = (req, res, next) => {
 
             if (!refreshResult.valid) {
                 return res.status(403).json({ 
-                    message: "Refresh token is invalid or expired" 
+                    message: "Authentication required" 
                 });
             }
 
@@ -41,8 +41,9 @@ export const checkUserAccess = (req, res, next) => {
             const newAccessToken = generateAccessToken(refreshResult.email);
 
             if (!newAccessToken) {
+                console.error("Failed to generate access token for user:", refreshResult.email);
                 return res.status(500).json({ 
-                    message: "Failed to generate new access token" 
+                    message: "Authentication failed" 
                 });
             }
 
