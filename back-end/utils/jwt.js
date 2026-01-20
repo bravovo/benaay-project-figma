@@ -16,3 +16,19 @@ export function generateAccessToken(email) {
         return null;
     }
 }
+
+export const verifyToken = (token, isAccess = false) => {
+    try {
+        const decoded = jwt.verify(
+            token,
+            isAccess ? ACCESS_TOKEN_SECRET : REFRESH_TOKEN_SECRET
+        );
+
+        if (decoded && decoded.email) {
+            return decoded.email;
+        }
+        return null;
+    } catch (error) {
+        return null;
+    }
+};

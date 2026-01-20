@@ -3,9 +3,27 @@ import { generateAccessToken, generateRefreshToken } from "../utils/jwt.js";
 
 import bcrypt from "bcrypt";
 
-export function postLogin(req, res, next) {
+export async function postLogin(req, res, next) {
     try {
         const { email, password } = req.body;
+
+        const user = await User.findOne({ email });
+
+        if (!user) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid credentials",
+            });
+        }
+
+        const isMatch = await bcrypt.compare(password, user.password);
+
+        if (!isMatch) {
+            return res.status(400).json({
+                success: false,
+                message: "Invalid credentials",
+            });
+        }
 
         const refreshToken = generateRefreshToken(email);
         const accessToken = generateAccessToken(email);
@@ -18,7 +36,11 @@ export function postLogin(req, res, next) {
             success: true,
             accessToken,
             refreshToken,
-            email,
+            user: {
+                fullName: user.fullName,
+                email: user.email,
+            },
+            message: "Login successful",
         });
     } catch (error) {
         return next(error);
