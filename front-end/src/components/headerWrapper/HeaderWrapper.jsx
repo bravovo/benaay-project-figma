@@ -1,4 +1,3 @@
-import axios from "axios";
 import Header from "../header/Header";
 import { useEffect, useState } from "react";
 import LoginForm from "../loginForm/LoginForm";
@@ -30,56 +29,15 @@ function HeaderWrapper() {
         setIsLoginFormOpened(true);
     };
 
-    const submitLoginForm = async ({ email, password }) => {
-        try {
-            const response = await axios.post(
-                `${import.meta.env.VITE_API_SERVER_URL}/api/auth/login`,
-                {
-                    email,
-                    password,
-                }
-            );
-
-            if (response.data.success) {
-                console.log(response.data);
-            }
-        } catch (error) {
-            console.error("Login failed:", error);
-        }
-    };
-
-    const submitRegisterForm = async ({ fullName, email, password }) => {
-        try {
-            const response = await axios.post(
-                `${import.meta.env.VITE_API_SERVER_URL}/api/auth/register`,
-                {
-                    fullName,
-                    email,
-                    password,
-                }
-            );
-
-            if (response.data.success) {
-                console.log(response.data);
-            }
-
-            registerToLogin();
-        } catch (error) {
-            console.error("Login failed:", error);
-        }
-    };
-
     return (
         <>
             <Header onLoginOpen={() => setIsLoginFormOpened(true)} />
             <LoginForm
-                onSubmit={submitLoginForm}
                 isOpened={isLoginFormOpened}
                 onClose={() => setIsLoginFormOpened(false)}
                 onRegisterClick={loginToRegister}
             />
             <RegisterForm
-                onSubmit={submitRegisterForm}
                 isOpened={isRegisterFormOpened}
                 onClose={() => setIsRegisterFormOpened(false)}
                 onLoginClick={registerToLogin}

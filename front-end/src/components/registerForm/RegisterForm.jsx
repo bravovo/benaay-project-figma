@@ -5,22 +5,41 @@ import eye from "../../assets/icons/eye.svg";
 import { coloredBtn } from "../../styles/styledObjects";
 import Button from "../button/Button";
 import ModalForm from "../modalForm/ModalForm";
+import axios from "axios";
 
-function RegisterForm({ onSubmit, isOpened, onClose, onLoginClick }) {
+function RegisterForm({ isOpened, onClose, onLoginClick }) {
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    const submit = (e) => {
+    const submitRegisterForm = async (e) => {
         e.preventDefault();
-        onSubmit({ fullName, email, password });
+
+        try {
+            const response = await axios.post(
+                `${import.meta.env.VITE_API_SERVER_URL}/api/auth/register`,
+                {
+                    fullName,
+                    email,
+                    password,
+                }
+            );
+
+            if (response.data.success) {
+                console.log(response.data);
+            }
+
+            onLoginClick();
+        } catch (error) {
+            console.error("Login failed:", error);
+        }
     };
 
     return (
         <ModalForm
             isOpen={isOpened}
-            onSubmit={submit}
+            onSubmit={submitRegisterForm}
             title={"Registration"}
             description={
                 "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id."

@@ -1,9 +1,10 @@
 import express, { json, urlencoded } from "express";
-import { NODE_ENV, PORT } from "./config/env.js";
+import { NODE_ENV, PORT, CLIENT_ORIGIN } from "./config/env.js";
 import cors from "cors";
 
 import authRouter from "./routes/auth.route.js";
 import { connectDB } from "./config/database.js";
+import cookieParser from "cookie-parser";
 
 import mongoose from "mongoose";
 
@@ -11,10 +12,16 @@ const app = express();
 
 connectDB();
 
-app.use(cors());
+app.use(
+    cors({
+        origin: CLIENT_ORIGIN,
+        credentials: true,
+    })
+);
 
 app.use(json());
 app.use(urlencoded({ extended: true }));
+app.use(cookieParser());
 
 app.use("/api/auth", authRouter);
 

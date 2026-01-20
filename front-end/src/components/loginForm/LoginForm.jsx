@@ -6,21 +6,42 @@ import ModalForm from "../modalForm/ModalForm";
 import Button from "../button/Button";
 
 import eye from "../../assets/icons/eye.svg";
+import axios from "axios";
 
-function LoginForm({ onSubmit, isOpened, onClose, onRegisterClick }) {
+function LoginForm({ isOpened, onClose, onRegisterClick }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
-    const submit = (e) => {
+    const submitLoginForm = async (e) => {
         e.preventDefault();
-        onSubmit({ email, password });
+        try {
+            const response = await axios.post(
+                `${import.meta.env.VITE_API_SERVER_URL}/api/auth/login`,
+                {
+                    email,
+                    password,
+                },
+                {
+                    withCredentials: true,
+                }
+            );
+
+            if (response.data.success) {
+                localStorage.setItem("accessToken", response.data.accessToken);
+                window.alert(`Welcome, ${response.data.user.fullName}!`);
+                console.log(response.data);
+                onClose();
+            }
+        } catch (error) {
+            console.error("Login failed:", error);
+        }
     };
 
     return (
         <ModalForm
             isOpen={isOpened}
-            onSubmit={submit}
+            onSubmit={submitLoginForm}
             title={"Enter the office"}
             description={
                 "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id."

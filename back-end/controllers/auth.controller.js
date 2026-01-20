@@ -1,3 +1,4 @@
+import { NODE_ENV } from "../config/env.js";
 import User from "../models/User.model.js";
 import { generateAccessToken, generateRefreshToken } from "../utils/jwt.js";
 
@@ -32,10 +33,16 @@ export async function postLogin(req, res, next) {
             throw new Error("Token generation failed");
         }
 
+        res.cookie("token", refreshToken, {
+            httpOnly: true,
+            maxAge: 24 * 60 * 60 * 7 * 1000,
+            secure: NODE_ENV === "production",
+            sameSite: "None",
+        });
+
         return res.status(200).json({
             success: true,
             accessToken,
-            refreshToken,
             user: {
                 fullName: user.fullName,
                 email: user.email,
