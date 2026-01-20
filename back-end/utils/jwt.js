@@ -25,10 +25,14 @@ export const verifyToken = (token, isAccess = false) => {
         );
 
         if (decoded && decoded.email) {
-            return decoded.email;
+            return { valid: true, email: decoded.email, error: null };
         }
-        return null;
+        return { valid: false, email: null, error: "Invalid token payload" };
     } catch (error) {
-        return null;
+        // Check if token is expired specifically
+        if (error.name === "TokenExpiredError") {
+            return { valid: false, email: null, error: "expired" };
+        }
+        return { valid: false, email: null, error: error.message };
     }
 };

@@ -1,6 +1,6 @@
 import { NODE_ENV } from "../config/env.js";
 import User from "../models/User.model.js";
-import { generateAccessToken, generateRefreshToken } from "../utils/jwt.js";
+import { generateAccessToken, generateRefreshToken, verifyToken } from "../utils/jwt.js";
 
 import bcrypt from "bcrypt";
 
@@ -90,6 +90,48 @@ export async function postRegister(req, res, next) {
         return res.status(201).json({
             success: true,
             message: "User registered successfully",
+        });
+    } catch (error) {
+        return next(error);
+    }
+}
+
+export async function postRefresh(req, res, next) {
+    try {
+        const refreshToken = req.cookies.token;
+
+        if (!refreshToken) {
+            return res.status(401).json({
+                success: false,
+                message: "No refresh token provided",
+            });
+        }
+
+        // Verify refresh token
+        const refreshResult = verifyToken(refreshToken, false);
+
+        if (!refreshResult.valid) {
+            return res.status(403).json({
+                success: false,
+                message: "Invalid or expired refresh token",
+            });
+        }
+
+        // Generate new access token
+        const newAccessToken = generateAccessToken(refreshResult.email);
+
+        if (!newAccessToken) {
+            console.error("Failed to generate access token for user:", refreshResult.email);
+            return res.status(500).json({
+                success: false,
+                message: "Failed to generate new access token",
+            });
+        }
+
+        return res.status(200).json({
+            success: true,
+            accessToken: newAccessToken,
+            message: "Token refreshed successfully",
         });
     } catch (error) {
         return next(error);

@@ -1,26 +1,64 @@
-import { verifyToken } from "../utils/jwt.js";
+import { verifyToken, generateAccessToken } from "../utils/jwt.js";
 
 export const checkUserAccess = (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;
+        const accessToken = authHeader && authHeader.split(" ")[1];
 
-        const token = authHeader && authHeader.split(" ")[1];
-
-        if (!token) {
+        if (!accessToken) {
             return res.status(401).json({ message: "No token provided" });
         }
 
-        const decoded = verifyToken(token, true);
+        // Verify access token
+        const accessResult = verifyToken(accessToken, true);
 
-        if (!decoded) {
-            return res
-                .status(403)
-                .json({ message: "Invalid or expired token" });
+        // If access token is valid, proceed with request
+        if (accessResult.valid) {
+            req.user = accessResult.email;
+            return next();
         }
 
-        req.user = decoded;
+        // If access token is expired, try to refresh using refresh token
+        if (accessResult.error === "expired") {
+            const refreshToken = req.cookies.token;
 
-        next();
+            if (!refreshToken) {
+                return res.status(401).json({ 
+                    message: "Authentication required" 
+                });
+            }
+
+            // Verify refresh token
+            const refreshResult = verifyToken(refreshToken, false);
+
+            if (!refreshResult.valid) {
+                return res.status(403).json({ 
+                    message: "Authentication required" 
+                });
+            }
+
+            // Generate new access token
+            const newAccessToken = generateAccessToken(refreshResult.email);
+
+            if (!newAccessToken) {
+                console.error("Failed to generate access token for user:", refreshResult.email);
+                return res.status(500).json({ 
+                    message: "Authentication failed" 
+                });
+            }
+
+            // Attach new access token to response header for client to update
+            res.setHeader("X-New-Access-Token", newAccessToken);
+
+            // Set user and proceed with request
+            req.user = refreshResult.email;
+            return next();
+        }
+
+        // For any other error (invalid signature, malformed, etc.)
+        return res.status(403).json({ 
+            message: "Invalid access token" 
+        });
     } catch (error) {
         next(error);
     }
