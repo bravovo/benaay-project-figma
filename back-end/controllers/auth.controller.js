@@ -1,6 +1,10 @@
 import { NODE_ENV } from "../config/env.js";
 import User from "../models/User.model.js";
-import { generateAccessToken, generateRefreshToken, verifyToken } from "../utils/jwt.js";
+import {
+    generateAccessToken,
+    generateRefreshToken,
+    verifyToken,
+} from "../utils/jwt.js";
 
 import bcrypt from "bcrypt";
 
@@ -121,7 +125,10 @@ export async function postRefresh(req, res, next) {
         const newAccessToken = generateAccessToken(refreshResult.email);
 
         if (!newAccessToken) {
-            console.error("Failed to generate access token for user:", refreshResult.email);
+            console.error(
+                "Failed to generate access token for user:",
+                refreshResult.email
+            );
             return res.status(500).json({
                 success: false,
                 message: "Failed to generate new access token",
@@ -132,6 +139,23 @@ export async function postRefresh(req, res, next) {
             success: true,
             accessToken: newAccessToken,
             message: "Token refreshed successfully",
+        });
+    } catch (error) {
+        return next(error);
+    }
+}
+
+export async function postLogout(req, res, next) {
+    try {
+        res.clearCookie("token", {
+            httpOnly: true,
+            secure: NODE_ENV === "production",
+            sameSite: "None",
+        });
+
+        return res.status(200).json({
+            success: true,
+            message: "Logged out successfully",
         });
     } catch (error) {
         return next(error);
