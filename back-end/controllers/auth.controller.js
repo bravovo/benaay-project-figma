@@ -41,7 +41,7 @@ export async function postLogin(req, res, next) {
             httpOnly: true,
             maxAge: 24 * 60 * 60 * 7 * 1000,
             secure: NODE_ENV === "production",
-            sameSite: "None",
+            sameSite: "Strict",
         });
 
         return res.status(200).json({
