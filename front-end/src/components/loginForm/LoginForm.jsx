@@ -6,9 +6,11 @@ import ModalForm from "../modalForm/ModalForm";
 import Button from "../button/Button";
 
 import eye from "../../assets/icons/eye.svg";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { login } from "../../state/slices/userSlice";
 
 function LoginForm({ isOpened, onClose, onRegisterClick }) {
+    const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
@@ -16,23 +18,9 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
     const submitLoginForm = async (e) => {
         e.preventDefault();
         try {
-            const response = await axios.post(
-                `${import.meta.env.VITE_API_SERVER_URL}/api/auth/login`,
-                {
-                    email,
-                    password,
-                },
-                {
-                    withCredentials: true,
-                }
-            );
+            dispatch(login({ email, password }));
 
-            if (response.data.success) {
-                localStorage.setItem("accessToken", response.data.accessToken);
-                window.alert(`Welcome, ${response.data.user.fullName}!`);
-                console.log(response.data);
-                onClose();
-            }
+            onClose();
         } catch (error) {
             console.error("Login failed:", error);
         }
@@ -62,7 +50,6 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
                         type={isPasswordVisible ? "text" : "password"}
                         name="password"
                         placeholder="Enter your password"
-                        className="password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <button

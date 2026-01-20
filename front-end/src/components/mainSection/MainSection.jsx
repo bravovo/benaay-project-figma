@@ -5,8 +5,17 @@ import { Container } from "../layout/index";
 import Button from "../button/Button";
 
 import mainImg from "../../assets/images/main-img.jpg";
+import { openModal } from "../../state/slices/modalSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 function MainSection() {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user);
+
+    const onStartClick = () => {
+        dispatch(openModal({ type: "login" }));
+    };
+
     return (
         <section
             className="main-section main-section-container"
@@ -27,11 +36,17 @@ function MainSection() {
                         </p>
                     </div>
                     <div className="main-section-buttons">
-                        <Button
-                            title="Start now"
-                            onClick={() => {}}
-                            styles={{ ...coloredBtn, width: "200px" }}
-                        />
+                        {user.isLoggedIn ? (
+                            <h2 style={{ color: "var(--color-bg-white)" }}>
+                                "Welcome to your profile"
+                            </h2>
+                        ) : (
+                            <Button
+                                title="Start now"
+                                onClick={onStartClick}
+                                styles={{ ...coloredBtn, width: "200px" }}
+                            />
+                        )}
                         <Button
                             title="Browse the catalog"
                             onClick={() => {}}

@@ -1,4 +1,4 @@
-import { useState, useCallback, useRef } from "react";
+import { useState, useRef } from "react";
 import "./Header.css";
 
 import { transparentBtn } from "../../styles/styledObjects";
@@ -12,18 +12,31 @@ import hammer from "../../assets/icons/hammer.svg";
 import search from "../../assets/icons/search.svg";
 import shoppingCart from "../../assets/icons/shopping-cart.svg";
 import { languages } from "../../assets/constants";
+import { useDispatch, useSelector } from "react-redux";
+import { logout } from "../../state/slices/userSlice";
+import { openModal } from "../../state/slices/modalSlice";
 
-function Header({ onLoginOpen }) {
+function Header() {
     const searchButtonRef = useRef(null);
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
 
-    const toggleSearch = useCallback(() => {
-        setIsSearchOpen((prev) => !prev);
-    }, []);
+    const onLoginClick = () => {
+        dispatch(openModal({ type: "login" }));
+    };
 
-    const closeSearch = useCallback(() => {
+    const onlogoutClick = () => {
+        dispatch(logout());
+    };
+
+    const toggleSearch = () => {
+        setIsSearchOpen((prev) => !prev);
+    };
+
+    const closeSearch = () => {
         setIsSearchOpen(false);
-    }, []);
+    };
 
     return (
         <>
@@ -62,11 +75,19 @@ function Header({ onLoginOpen }) {
                                 onClick={() => {}}
                             />
                             <LanguageSelect languages={languages} />
-                            <Button
-                                title="Log In"
-                                onClick={onLoginOpen}
-                                styles={transparentBtn}
-                            />
+                            {user.isLoggedIn ? (
+                                <Button
+                                    title="Log Out"
+                                    onClick={onlogoutClick}
+                                    styles={transparentBtn}
+                                />
+                            ) : (
+                                <Button
+                                    title="Log In"
+                                    onClick={onLoginClick}
+                                    styles={transparentBtn}
+                                />
+                            )}
                         </div>
                     </div>
                 </Container>

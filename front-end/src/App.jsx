@@ -8,12 +8,14 @@ import OurAdvantages from "./components/ourAdvantages/OurAdvantages";
 import MainCategories from "./components/mainCategories/MainCategories";
 import GetStarted from "./components/getStarted/GetStarted";
 import Footer from "./components/footer/Footer";
-import HeaderWrapper from "./components/headerWrapper/HeaderWrapper";
+import Header from "./components/header/Header";
+import AuthFormsLayout from "./components/authFormsLayout/AuthFormsLayout";
 
 function App() {
     return (
         <Layout>
-            <HeaderWrapper />
+            <AuthFormsLayout />
+            <Header />
             <main className="main">
                 <MainSection />
                 <ApprovedSuppliers />

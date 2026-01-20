@@ -5,8 +5,17 @@ import SectionText from "../sectionText/SectionText";
 import "./GetStarted.css";
 
 import getStartedImg from "../../assets/icons/get-started-pic.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { openModal } from "../../state/slices/modalSlice";
 
 function GetStarted() {
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.user);
+
+    const onStartClick = () => {
+        dispatch(openModal({ type: "login" }));
+    };
+
     return (
         <section className="get-started-section">
             <Container>
@@ -18,14 +27,16 @@ function GetStarted() {
                             width={524}
                             gap={16}
                         />
-                        <Button
-                            title="Register now for free"
-                            onClick={() => {}}
-                            styles={{
-                                ...coloredBtn,
-                                width: "214px",
-                            }}
-                        />
+                        {user.isLoggedIn ? null : (
+                            <Button
+                                title="Register now for free"
+                                onClick={onStartClick}
+                                styles={{
+                                    ...coloredBtn,
+                                    width: "214px",
+                                }}
+                            />
+                        )}
                     </div>
                     <img
                         src={getStartedImg}
