@@ -15,18 +15,6 @@ function ModalForm({
     const formRef = useRef(null);
 
     useEffect(() => {
-        if (isOpen) {
-            document.body.classList.add("modal-open");
-        } else {
-            document.body.classList.remove("modal-open");
-        }
-
-        return () => {
-            document.body.classList.remove("modal-open");
-        };
-    }, [isOpen]);
-
-    useEffect(() => {
         const handleClickOutside = (event) => {
             if (formRef.current && !formRef.current.contains(event.target)) {
                 if (isClosable) {

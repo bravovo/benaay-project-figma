@@ -1,7 +1,7 @@
 import { useState, useCallback, useRef } from "react";
 import "./Header.css";
 
-import { coloredBtn, transparentBtn } from "../../styles/styledObjects";
+import { transparentBtn } from "../../styles/styledObjects";
 import { Container } from "../layout";
 import IconButton from "../iconButton/IconButton";
 import Button from "../button/Button";
@@ -12,28 +12,10 @@ import hammer from "../../assets/icons/hammer.svg";
 import search from "../../assets/icons/search.svg";
 import shoppingCart from "../../assets/icons/shopping-cart.svg";
 import { languages } from "../../assets/constants";
-import ModalForm from "../modalForm/ModalForm";
 
-import eye from "../../assets/icons/eye.svg";
-
-import axios from "axios";
-
-function Header() {
-    const [isLoginFormOpened, setIsLoginFormOpened] = useState(false);
-    const [loginData, setLoginData] = useState({ login: "", password: "" });
-
-    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
-
+function Header({ onLoginOpen }) {
     const searchButtonRef = useRef(null);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setLoginData((prevData) => ({
-            ...prevData,
-            [name]: value,
-        }));
-    };
 
     const toggleSearch = useCallback(() => {
         setIsSearchOpen((prev) => !prev);
@@ -42,26 +24,6 @@ function Header() {
     const closeSearch = useCallback(() => {
         setIsSearchOpen(false);
     }, []);
-
-    const submitForm = async (e) => {
-        e.preventDefault();
-
-        try {
-            const response = await axios.post(
-                `${import.meta.env.VITE_API_SERVER_URL}/api/auth/login`,
-                {
-                    email: loginData.login,
-                    password: loginData.password,
-                }
-            );
-
-            if (response.data.success) {
-                console.log(response.data);
-            }
-        } catch (error) {
-            console.error("Login failed:", error);
-        }
-    };
 
     return (
         <>
@@ -102,9 +64,7 @@ function Header() {
                             <LanguageSelect languages={languages} />
                             <Button
                                 title="Log In"
-                                onClick={() => {
-                                    setIsLoginFormOpened(true);
-                                }}
+                                onClick={onLoginOpen}
                                 styles={transparentBtn}
                             />
                         </div>
@@ -116,64 +76,6 @@ function Header() {
                 onClose={closeSearch}
                 buttonRef={searchButtonRef}
             />
-            <ModalForm
-                isOpen={isLoginFormOpened}
-                onSubmit={submitForm}
-                title={"Enter the office"}
-                description={
-                    "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id."
-                }
-                onClose={() => setIsLoginFormOpened(false)}
-                isClosable={true}
-            >
-                <div className="login-form-input">
-                    <input
-                        type="text"
-                        name="login"
-                        placeholder="Login or e-mail"
-                        className="login-input"
-                        onChange={handleInputChange}
-                    />
-                    <div className="password-input-container">
-                        <input
-                            type={isPasswordVisible ? "text" : "password"}
-                            name="password"
-                            placeholder="Enter your password"
-                            className="password"
-                            onChange={handleInputChange}
-                        />
-                        <button
-                            type="button"
-                            className="password-toggle"
-                            onClick={() =>
-                                setIsPasswordVisible((prev) => !prev)
-                            }
-                            aria-label={
-                                isPasswordVisible
-                                    ? "Hide password"
-                                    : "Show password"
-                            }
-                        >
-                            <img src={eye} alt="See password" />
-                        </button>
-                    </div>
-                    <a href="#" className="forgot-pass-link">
-                        Forgot your password?
-                    </a>
-                </div>
-                <div className="login-form-controls">
-                    <Button
-                        className="log-in-form-button"
-                        styles={{ ...coloredBtn, width: 364 }}
-                        title={"Sign in"}
-                        onClick={() => {}}
-                    />
-                    <a href="#" className="register-link">
-                        Don't have an account yet?
-                        <span className="register-span"> Register</span>
-                    </a>
-                </div>
-            </ModalForm>
         </>
     );
 }
