@@ -7,11 +7,13 @@ import Button from "../button/Button";
 
 import eye from "../../assets/icons/eye.svg";
 import axios from "axios";
+import { useAuth } from "../../context/AuthContext";
 
 function LoginForm({ isOpened, onClose, onRegisterClick }) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const { login } = useAuth();
 
     const submitLoginForm = async (e) => {
         e.preventDefault();
@@ -28,7 +30,7 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
             );
 
             if (response.data.success) {
-                localStorage.setItem("accessToken", response.data.accessToken);
+                login(response.data.user, response.data.accessToken);
                 window.alert(`Welcome, ${response.data.user.fullName}!`);
                 console.log(response.data);
                 onClose();

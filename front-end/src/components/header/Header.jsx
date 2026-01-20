@@ -12,10 +12,12 @@ import hammer from "../../assets/icons/hammer.svg";
 import search from "../../assets/icons/search.svg";
 import shoppingCart from "../../assets/icons/shopping-cart.svg";
 import { languages } from "../../assets/constants";
+import { useAuth } from "../../context/AuthContext";
 
 function Header({ onLoginOpen }) {
     const searchButtonRef = useRef(null);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+    const { isAuthenticated, logout } = useAuth();
 
     const toggleSearch = useCallback(() => {
         setIsSearchOpen((prev) => !prev);
@@ -24,6 +26,10 @@ function Header({ onLoginOpen }) {
     const closeSearch = useCallback(() => {
         setIsSearchOpen(false);
     }, []);
+
+    const handleLogout = useCallback(() => {
+        logout();
+    }, [logout]);
 
     return (
         <>
@@ -62,11 +68,19 @@ function Header({ onLoginOpen }) {
                                 onClick={() => {}}
                             />
                             <LanguageSelect languages={languages} />
-                            <Button
-                                title="Log In"
-                                onClick={onLoginOpen}
-                                styles={transparentBtn}
-                            />
+                            {isAuthenticated ? (
+                                <Button
+                                    title="Logout"
+                                    onClick={handleLogout}
+                                    styles={transparentBtn}
+                                />
+                            ) : (
+                                <Button
+                                    title="Log In"
+                                    onClick={onLoginOpen}
+                                    styles={transparentBtn}
+                                />
+                            )}
                         </div>
                     </div>
                 </Container>
