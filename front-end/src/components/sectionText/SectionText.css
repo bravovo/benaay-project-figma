@@ -5,7 +5,7 @@
 }
 
 .section-title {
-    font-size: var(--text-h2);
+    font-size: 36px;
     line-height: 44px;
     letter-spacing: -0.02em;
     font-weight: 600;
@@ -13,7 +13,7 @@
 }
 
 .section-para {
-    font-size: var(--text-body);
+    font-size: 20px;
     line-height: 30px;
     font-weight: 400;
     color: var(--color-paragraph-addition);
@@ -26,5 +26,19 @@
 
     .section-title {
         line-height: 100%;
+    }
+}
+
+@media (max-width: 425px) {
+    .section-title {
+        font-size: 24px;
+        line-height: 120%;
+        color: #030712;
+    }
+
+    .section-para {
+        font-size: 16px;
+        line-height: 150%;
+        color: #6b7280;
     }
 }

@@ -11,7 +11,7 @@
 }
 
 .footer-main {
-    width: 330px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -89,5 +89,36 @@
     .links-container {
         flex-direction: column;
         gap: 32px;
+    }
+}
+
+@media (max-width: 768px) {
+    .rights-container {
+        display: flex;
+        padding-top: 20px;
+        justify-content: space-between;
+        align-items: center;
+        align-content: center;
+        row-gap: 16px;
+        align-self: stretch;
+        flex-wrap: wrap;
+    }
+}
+
+@media (max-width: 425px) {
+    .footer-container {
+        display: flex;
+        padding: 24px 16px;
+        flex-direction: column;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .footer-links {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 20px;
     }
 }

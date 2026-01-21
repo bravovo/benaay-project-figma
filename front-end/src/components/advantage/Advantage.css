@@ -51,6 +51,26 @@
 @media (max-width: 768px) {
     .advantage {
         flex-direction: row;
+        align-items: center;
         gap: 16px;
+    }
+}
+
+@media (max-width: 435px) {
+    .advantage-content p {
+        font-size: 12px;
+        line-height: 150%;
+        color: #6b7280;
+    }
+
+    .advantage-content h3 {
+        font-size: 16px;
+        line-height: 150%;
+        font-weight: 500;
+        color: #030712;
+    }
+
+    .advantage-content {
+        gap: 4px;
     }
 }

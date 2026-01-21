@@ -64,7 +64,22 @@
     font-weight: 400;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
+    .header-links a {
+        font-size: 12px;
+    }
+
+    .header-links {
+        gap: 16px;
+    }
+
+    .icon-container {
+        width: auto;
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 832px) {
     .header-container {
         width: 100%;
         padding: 0 4px;
