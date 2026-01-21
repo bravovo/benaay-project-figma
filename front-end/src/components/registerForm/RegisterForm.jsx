@@ -6,8 +6,10 @@ import { coloredBtn } from "../../styles/styledObjects";
 import Button from "../button/Button";
 import ModalForm from "../modalForm/ModalForm";
 import axios from "axios";
+import { useTranslation } from "react-i18next";
 
 function RegisterForm({ isOpened, onClose, onLoginClick }) {
+    const { t } = useTranslation();
     const [fullName, setFullName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -40,10 +42,8 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
         <ModalForm
             isOpen={isOpened}
             onSubmit={submitRegisterForm}
-            title={"Registration"}
-            description={
-                "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id."
-            }
+            title={t("registerForm.title")}
+            description={t("registerForm.description")}
             onClose={onClose}
             isClosable={true}
         >
@@ -51,14 +51,14 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
                 <input
                     type="text"
                     name="fullname"
-                    placeholder="Full Name"
+                    placeholder={t("registerForm.fullNamePlaceholder")}
                     className="register-input"
                     onChange={(e) => setFullName(e.target.value)}
                 />
                 <input
                     type="text"
                     name="email"
-                    placeholder="E-mail"
+                    placeholder={t("registerForm.emailPlaceholder")}
                     className="register-input"
                     onChange={(e) => setEmail(e.target.value)}
                 />
@@ -66,7 +66,7 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
                     <input
                         type={isPasswordVisible ? "text" : "password"}
                         name="password"
-                        placeholder="Enter your password"
+                        placeholder={t("registerForm.passwordPlaceholder")}
                         className="password"
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -76,11 +76,11 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
                         onClick={() => setIsPasswordVisible((prev) => !prev)}
                         aria-label={
                             isPasswordVisible
-                                ? "Hide password"
-                                : "Show password"
+                                ? t("registerForm.hidePasswordLabel")
+                                : t("registerForm.showPasswordLabel")
                         }
                     >
-                        <img src={eye} alt="See password" />
+                        <img src={eye} alt={t("registerForm.seePasswordAlt")} />
                     </button>
                 </div>
             </div>
@@ -89,15 +89,15 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
                     type="submit"
                     className="register-in-form-button"
                     styles={{ ...coloredBtn, width: "100%" }}
-                    title={"Sign up"}
+                    title={t("registerForm.signUpButton")}
                 />
                 <button
                     className="login-link-button"
                     onClick={onLoginClick}
                     type="button"
                 >
-                    Already registered?
-                    <span className="login-span"> Login</span>
+                    {t("registerForm.alreadyRegisteredText")}
+                    <span className="login-span"> {t("registerForm.loginLink")}</span>
                 </button>
             </div>
         </ModalForm>

@@ -8,8 +8,10 @@ import Button from "../button/Button";
 import eye from "../../assets/icons/eye.svg";
 import { useDispatch } from "react-redux";
 import { login } from "../../state/slices/userSlice";
+import { useTranslation } from "react-i18next";
 
 function LoginForm({ isOpened, onClose, onRegisterClick }) {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -30,10 +32,8 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
         <ModalForm
             isOpen={isOpened}
             onSubmit={submitLoginForm}
-            title={"Enter the office"}
-            description={
-                "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id."
-            }
+            title={t("loginForm.title")}
+            description={t("loginForm.description")}
             onClose={onClose}
             isClosable={true}
         >
@@ -41,7 +41,7 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
                 <input
                     type="text"
                     name="login"
-                    placeholder="Login or e-mail"
+                    placeholder={t("loginForm.loginPlaceholder")}
                     className="login-input"
                     onChange={(e) => setEmail(e.target.value)}
                 />
@@ -49,7 +49,7 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
                     <input
                         type={isPasswordVisible ? "text" : "password"}
                         name="password"
-                        placeholder="Enter your password"
+                        placeholder={t("loginForm.passwordPlaceholder")}
                         onChange={(e) => setPassword(e.target.value)}
                     />
                     <button
@@ -58,15 +58,15 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
                         onClick={() => setIsPasswordVisible((prev) => !prev)}
                         aria-label={
                             isPasswordVisible
-                                ? "Hide password"
-                                : "Show password"
+                                ? t("loginForm.hidePasswordLabel")
+                                : t("loginForm.showPasswordLabel")
                         }
                     >
-                        <img src={eye} alt="See password" />
+                        <img src={eye} alt={t("loginForm.seePasswordAlt")} />
                     </button>
                 </div>
                 <a href="#" className="forgot-pass-link">
-                    Forgot your password?
+                    {t("loginForm.forgotPassword")}
                 </a>
             </div>
             <div className="login-form-controls">
@@ -74,15 +74,15 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
                     type="submit"
                     className="log-in-form-button"
                     styles={{ ...coloredBtn, width: "100%" }}
-                    title={"Sign in"}
+                    title={t("loginForm.signInButton")}
                 />
                 <button
                     type="button"
                     className="register-link-button"
                     onClick={onRegisterClick}
                 >
-                    Don't have an account yet?
-                    <span className="register-span"> Register</span>
+                    {t("loginForm.noAccountText")}
+                    <span className="register-span"> {t("loginForm.registerLink")}</span>
                 </button>
             </div>
         </ModalForm>

@@ -96,5 +96,38 @@
                 "cookies": "Cookies"
             }
         }
+    },
+    "modal": {
+        "closeAlt": "Close Modal"
+    },
+    "loginForm": {
+        "title": "Enter the office",
+        "description": "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id.",
+        "loginPlaceholder": "Login or e-mail",
+        "passwordPlaceholder": "Enter your password",
+        "showPasswordLabel": "Show password",
+        "hidePasswordLabel": "Hide password",
+        "seePasswordAlt": "See password",
+        "forgotPassword": "Forgot your password?",
+        "signInButton": "Sign in",
+        "noAccountText": "Don't have an account yet?",
+        "registerLink": "Register"
+    },
+    "registerForm": {
+        "title": "Registration",
+        "description": "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id.",
+        "fullNamePlaceholder": "Full Name",
+        "emailPlaceholder": "E-mail",
+        "passwordPlaceholder": "Enter your password",
+        "showPasswordLabel": "Show password",
+        "hidePasswordLabel": "Hide password",
+        "seePasswordAlt": "See password",
+        "signUpButton": "Sign up",
+        "alreadyRegisteredText": "Already registered?",
+        "loginLink": "Login"
+    },
+    "search": {
+        "placeholder": "Search...",
+        "ariaLabel": "Search products"
     }
 }

@@ -2,8 +2,10 @@ import { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
 import "./Search.css";
 import { Search as SearchIcon } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 function Search({ isOpen, onClose, buttonRef }) {
+    const { t } = useTranslation();
     const searchRef = useRef(null);
 
     useEffect(() => {
@@ -37,8 +39,8 @@ function Search({ isOpen, onClose, buttonRef }) {
                     <input
                         type="text"
                         className="search-input"
-                        placeholder="Search..."
-                        aria-label="Search products"
+                        placeholder={t("search.placeholder")}
+                        aria-label={t("search.ariaLabel")}
                         role="searchbox"
                         autoFocus
                     />
