@@ -11,7 +11,7 @@
 }
 
 .footer-main {
-    width: 100%;
+    max-width: 330px;
     display: flex;
     flex-direction: column;
     gap: 16px;
