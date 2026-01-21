@@ -88,7 +88,7 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
                 <Button
                     type="submit"
                     className="register-in-form-button"
-                    styles={{ ...coloredBtn }}
+                    styles={{ ...coloredBtn, width: "100%" }}
                     title={"Sign up"}
                 />
                 <button

@@ -73,7 +73,7 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
                 <Button
                     type="submit"
                     className="log-in-form-button"
-                    styles={{ ...coloredBtn }}
+                    styles={{ ...coloredBtn, width: "100%" }}
                     title={"Sign in"}
                 />
                 <button

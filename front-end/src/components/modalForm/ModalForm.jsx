@@ -25,19 +25,19 @@ function ModalForm({
 
         if (!isOpen) {
             // Remove modal-open class when modal is closed
-            document.body.classList.remove("modal-open");
+            document.body.style.overflow = "auto";
             return;
         }
 
         // Add modal-open class to prevent background scrolling
-        document.body.classList.add("modal-open");
+        document.body.style.overflow = "hidden";
 
         document.addEventListener("mousedown", handleClickOutside);
 
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
             // Clean up: remove modal-open class
-            document.body.classList.remove("modal-open");
+            document.body.style.overflow = "auto";
         };
     }, [isOpen, onClose, isClosable]);
 
