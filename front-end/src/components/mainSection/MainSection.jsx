@@ -7,8 +7,10 @@ import Button from "../button/Button";
 import mainImg from "../../assets/images/main-img.jpg";
 import { openModal } from "../../state/slices/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
+import { useTranslation } from "react-i18next";
 
 function MainSection() {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
 
@@ -28,23 +30,21 @@ function MainSection() {
             <Container>
                 <div className="main-section-content">
                     <div className="main-section-text">
-                        <h1>Bannai - Building Materials Market</h1>
+                        <h1>{t("home.hero.title")}</h1>
                         <p>
-                            B2B platform specializing in plumbing and building
-                            materials compare prices and order from certified
-                            suppliers
+                            {t("home.hero.description")}
                         </p>
                     </div>
                     <div className="main-section-buttons">
                         {user.isLoggedIn ? null : (
                             <Button
-                                title="Start now"
+                                title={t("home.hero.startButton")}
                                 onClick={onStartClick}
                                 styles={{ ...coloredBtn, width: "200px" }}
                             />
                         )}
                         <Button
-                            title="Browse the catalog"
+                            title={t("home.hero.browseButton")}
                             onClick={() => {}}
                             styles={{
                                 ...transparentBtn,

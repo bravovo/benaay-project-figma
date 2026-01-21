@@ -34,8 +34,8 @@ function Advantages() {
         <section className="advantages-section">
             <Container>
                 <SectionText
-                    title="Our advantages"
-                    paragraph="We combine quality, speed and care so that you get the best result without unnecessary effort."
+                    title={t("home.advantages.sectionTitle")}
+                    paragraph={t("home.advantages.sectionDescription")}
                     width={900}
                     gap={20}
                 />

@@ -10,24 +10,25 @@ import logo7 from "../../assets/icons/Logomark-7.svg";
 import SliderLogo from "../sliderLogo/SliderLogo";
 import SectionText from "../sectionText/SectionText";
 import { Container } from "../layout";
-
-const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo5, logo3];
-
-const suppliers = [...logos, ...logos].map((logo, index) => ({
-    imgSrc: logo,
-    altText: `Supplier ${index + 1} Logo`,
-    linkUrl: "#",
-    logoTitle: "Logo",
-}));
+import { useTranslation } from "react-i18next";
 
 function ApprovedSuppliers() {
+    const { t } = useTranslation();
+
+    const logos = [logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo5, logo3];
+
+    const suppliers = [...logos, ...logos].map((logo, index) => ({
+        imgSrc: logo,
+        altText: t("home.approvedSuppliers.supplierLogoAlt", { number: index + 1 }),
+        linkUrl: "#",
+        logoTitle: t("home.approvedSuppliers.logoTitle"),
+    }));
     return (
         <section className="suppliers-section">
             <Container>
                 <SectionText
-                    title="Our approved suppliers"
-                    paragraph="We work only with verified suppliers to ensure quality,
-                        reliability, and fair pricing for every order"
+                    title={t("home.approvedSuppliers.title")}
+                    paragraph={t("home.approvedSuppliers.description")}
                     width={612}
                     gap={12}
                 />

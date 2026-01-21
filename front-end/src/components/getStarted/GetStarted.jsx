@@ -7,8 +7,10 @@ import "./GetStarted.css";
 import getStartedImg from "../../assets/icons/get-started-pic.svg";
 import { useDispatch, useSelector } from "react-redux";
 import { openModal } from "../../state/slices/modalSlice";
+import { useTranslation } from "react-i18next";
 
 function GetStarted() {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
 
@@ -22,14 +24,14 @@ function GetStarted() {
                 <div className="get-started-container">
                     <div className="get-started-content">
                         <SectionText
-                            title="Ready to get started?"
-                            paragraph="Join hundreds of contractors and plumbers who use Bannai to save time and money"
+                            title={t("home.getStarted.title")}
+                            paragraph={t("home.getStarted.description")}
                             width={524}
                             gap={16}
                         />
                         {user.isLoggedIn ? null : (
                             <Button
-                                title="Register now for free"
+                                title={t("home.getStarted.registerButton")}
                                 onClick={onStartClick}
                                 styles={{
                                     ...coloredBtn,
