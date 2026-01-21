@@ -2,10 +2,12 @@ export const languages = [
     {
         short: "Eng",
         name: "English",
+        i18n: "en",
     },
     {
         short: "Ara",
         name: "Arabic",
+        i18n: "ar",
     },
 ];
 

@@ -17,8 +17,10 @@ import { logout } from "../../state/slices/userSlice";
 import { openModal } from "../../state/slices/modalSlice";
 import menu from "../../assets/icons/menu.svg";
 import HeaderMenu from "../headerMenu/HeaderMenu";
+import { useTranslation } from "react-i18next";
 
 function Header() {
+    const { t } = useTranslation();
     const [headerMenuOpen, setHeaderMenuOpen] = useState(false);
     const searchButtonRef = useRef(null);
     const dispatch = useDispatch();
@@ -64,7 +66,7 @@ function Header() {
                                 alt="Hammer Icon"
                                 className="header-icon"
                             />
-                            Bennay
+                            {t("appTitle")}
                         </a>
                         <div className="header-links">
                             <a href="#">Link 1</a>
