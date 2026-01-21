@@ -1,0 +1,53 @@
+.header-menu-container {
+    position: fixed;
+    inset: 0;
+    padding: 104px 16px 32px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    background-color: var(--color-bg-white);
+    z-index: 100;
+}
+
+.menu-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-head h1 {
+    color: var(--color-text-darker, #030712);
+
+    /* Typography/H1 */
+    font-family: Inter;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 100%; /* 24px */
+}
+
+.menu-links {
+    flex: 1 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.menu-links a {
+    display: flex;
+    padding: 12px 8px;
+    align-items: center;
+    gap: 16px;
+    align-self: stretch;
+    text-decoration: none;
+    color: var(--color-text-darker);
+    border-bottom: 1px solid var(--color-paragraph-main, #e5e7eb);
+}
+
+.menu-button {
+    width: 100%;
+}
+
+.menu-button button {
+    width: 100%;
+}

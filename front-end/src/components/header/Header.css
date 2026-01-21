@@ -40,6 +40,16 @@
     gap: 16px;
 }
 
+.header-buttons-visible {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.header-menu-button {
+    display: none;
+}
+
 .header-links {
     display: flex;
     justify-content: center;
@@ -52,4 +62,30 @@
     text-decoration: none;
     font-size: 16px;
     font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .header-container {
+        width: 100%;
+        padding: 0 4px;
+    }
+
+    .header-buttons {
+        gap: 12px;
+    }
+
+    .header-links {
+        display: none;
+    }
+
+    .header-menu-button {
+        display: block;
+        padding: 10px;
+        background-color: var(--color-bg-transparent);
+        border: none;
+    }
+
+    .header-buttons-visible {
+        display: none;
+    }
 }

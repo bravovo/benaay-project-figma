@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./Header.css";
 
 import { transparentBtn } from "../../styles/styledObjects";
@@ -15,12 +15,23 @@ import { languages } from "../../assets/constants";
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../../state/slices/userSlice";
 import { openModal } from "../../state/slices/modalSlice";
+import menu from "../../assets/icons/menu.svg";
+import HeaderMenu from "../headerMenu/HeaderMenu";
 
 function Header() {
+    const [headerMenuOpen, setHeaderMenuOpen] = useState(false);
     const searchButtonRef = useRef(null);
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    useEffect(() => {
+        if (headerMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [headerMenuOpen]);
 
     const onLoginClick = () => {
         dispatch(openModal({ type: "login" }));
@@ -68,26 +79,56 @@ function Header() {
                                 title="Search Icon"
                                 onClick={toggleSearch}
                                 ref={searchButtonRef}
+                                className="search-icon"
                             />
                             <IconButton
                                 icon={shoppingCart}
                                 title="Shopping cart icon"
                                 onClick={() => {}}
+                                className="shopping-cart-icon"
                             />
-                            <LanguageSelect languages={languages} />
-                            {user.isLoggedIn ? (
-                                <Button
-                                    title="Log Out"
-                                    onClick={onlogoutClick}
-                                    styles={transparentBtn}
-                                />
-                            ) : (
-                                <Button
-                                    title="Log In"
-                                    onClick={onLoginClick}
-                                    styles={transparentBtn}
-                                />
-                            )}
+                            <button
+                                onClick={() => {
+                                    setHeaderMenuOpen((prev) => !prev);
+                                }}
+                                className="header-menu-button"
+                            >
+                                {headerMenuOpen ? (
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        width="20"
+                                        height="20"
+                                        viewBox="0 0 20 20"
+                                        fill="none"
+                                    >
+                                        <path
+                                            d="M15 5L5 15M5 5L15 15"
+                                            stroke="white"
+                                            stroke-width="2"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round"
+                                        />
+                                    </svg>
+                                ) : (
+                                    <img src={menu} alt="Header menu" />
+                                )}
+                            </button>
+                            <div className="header-buttons-visible">
+                                <LanguageSelect languages={languages} />
+                                {user.isLoggedIn ? (
+                                    <Button
+                                        title="Log Out"
+                                        onClick={onlogoutClick}
+                                        styles={transparentBtn}
+                                    />
+                                ) : (
+                                    <Button
+                                        title="Log In"
+                                        onClick={onLoginClick}
+                                        styles={transparentBtn}
+                                    />
+                                )}
+                            </div>
                         </div>
                     </div>
                 </Container>
@@ -97,6 +138,7 @@ function Header() {
                 onClose={closeSearch}
                 buttonRef={searchButtonRef}
             />
+            {headerMenuOpen && <HeaderMenu />}
         </>
     );
 }

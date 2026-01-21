@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./LanguageSelect.css";
 import { ChevronDown } from "lucide-react";
 
-function LanguageSelect({ languages }) {
+function LanguageSelect({ languages, color = "white" }) {
     const [isOpened, setIsOpened] = useState(false);
     const [selectedLanguage, setSelectedLanguage] = useState(
         languages[0].short
@@ -17,10 +17,11 @@ function LanguageSelect({ languages }) {
         <div className="lang-select-container">
             <button
                 className="lang-select-button"
+                style={{ color: color }}
                 onClick={() => setIsOpened((prev) => !prev)}
             >
                 <span className="selected-lang-title">{selectedLanguage}</span>
-                <ChevronDown size={20} color="white" />
+                <ChevronDown size={20} color={color} />
             </button>
 
             {isOpened && (
