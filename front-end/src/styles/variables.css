@@ -7,7 +7,7 @@
     --additional-color: #fbf2ef;
     --footer-main-color: #4b5563;
     --footer-add-color: #6b7280;
-    
+
     /* Text Colors */
     --color-text-primary: #333;
     --color-text-dark: #212529;
@@ -19,31 +19,36 @@
     --color-text-very-dark: #0a0d12;
     --color-text-charcoal: #111827;
     --color-text-darker: #030712;
-    
+
     /* Background Colors */
     --color-bg-white: #ffffff;
     --color-bg-light-gray: #e9ecef;
     --color-bg-dark-blue: #1a3b60;
     --color-bg-transparent: transparent;
-    
+
     /* Border Colors */
     --color-border-light: #e5e7eb;
     --color-border-lighter: #f3f4f6;
-    
+
     /* Shadow Colors */
     --color-shadow-dark: rgba(0, 0, 0, 0.16);
-    
+
     /* Category Theme Colors */
-    --category-plumbing-bg: #DCEBF9;
-    --category-plumbing-primary: #206BB6;
-    --category-plumbing-secondary: #B9D6F3;
-    --category-upvc-bg: #DFE5DC;
-    --category-upvc-primary: #586A4E;
-    --category-upvc-secondary: #CAD4C4;
-    --category-ppr-bg: #DBD4ED;
-    --category-ppr-primary: #6348AD;
-    --category-ppr-secondary: #C2B7E1;
+    --category-plumbing-bg: #dcebf9;
+    --category-plumbing-primary: #206bb6;
+    --category-plumbing-secondary: #b9d6f3;
+    --category-upvc-bg: #dfe5dc;
+    --category-upvc-primary: #586a4e;
+    --category-upvc-secondary: #cad4c4;
+    --category-ppr-bg: #dbd4ed;
+    --category-ppr-primary: #6348ad;
+    --category-ppr-secondary: #c2b7e1;
 
     /* Layout */
     --header-height: 72px;
+
+    --text-h1: clamp(36px, 3.2vw + 8px, 60px);
+    --text-h2: clamp(26px, 1.8vw + 10px, 36px);
+    --text-h3: clamp(16px, 2.2vw, 28px);
+    --text-body: clamp(16px, 0.6vw + 14px, 20px);
 }

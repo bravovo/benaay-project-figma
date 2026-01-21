@@ -1,5 +1,4 @@
 .advantages-section {
-    height: 482px;
     padding-top: 80px;
     padding-bottom: 80px;
     display: flex;
@@ -8,7 +7,21 @@
 }
 
 .advantages-container {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(310px, 3fr));
     gap: 24px;
+}
+
+@media (max-width: 768px) {
+    .advantages-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .advantages-section {
+        padding-top: 40px;
+        padding-bottom: 40px;
+        gap: 16px;
+    }
 }

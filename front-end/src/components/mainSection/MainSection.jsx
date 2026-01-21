@@ -28,7 +28,7 @@ function MainSection() {
             <Container>
                 <div className="main-section-content">
                     <div className="main-section-text">
-                        <h2>Bannai - Building Materials Market</h2>
+                        <h1>Bannai - Building Materials Market</h1>
                         <p>
                             B2B platform specializing in plumbing and building
                             materials compare prices and order from certified
@@ -36,11 +36,7 @@ function MainSection() {
                         </p>
                     </div>
                     <div className="main-section-buttons">
-                        {user.isLoggedIn ? (
-                            <h2 style={{ color: "var(--color-bg-white)" }}>
-                                "Welcome to your profile"
-                            </h2>
-                        ) : (
+                        {user.isLoggedIn ? null : (
                             <Button
                                 title="Start now"
                                 onClick={onStartClick}

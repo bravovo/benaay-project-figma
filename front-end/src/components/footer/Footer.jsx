@@ -43,7 +43,7 @@ function Footer() {
                             />
                             Bennay
                         </a>
-                        <p>
+                        <p className="footer-main-para">
                             Join hundreds of contractors and plumbers who use
                             Bannai to save time and money
                         </p>

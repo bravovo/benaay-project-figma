@@ -1,5 +1,19 @@
 .container {
-  padding-left: 80px;
-  padding-right: 80px;
-  width: 100%;
+    padding-left: 80px;
+    padding-right: 80px;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding-left: 32px;
+        padding-right: 32px;
+    }
+}
+
+@media (max-width: 425px) {
+    .container {
+        padding-left: 16px;
+        padding-right: 16px;
+    }
 }

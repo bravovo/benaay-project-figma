@@ -17,10 +17,16 @@
     gap: 16px;
 }
 
+.footer-main-para {
+    font-size: 16px;
+    word-break: break-word;
+    overflow-wrap: break-word;
+}
+
 .links-container {
     display: flex;
     flex-direction: row;
-    gap: auto;
+    justify-content: space-between;
 }
 
 .footer-links {
@@ -77,4 +83,11 @@
     gap: 20px;
     align-items: flex-start;
     max-width: 274px;
+}
+
+@media (max-width: 1024px) {
+    .links-container {
+        flex-direction: column;
+        gap: 32px;
+    }
 }
