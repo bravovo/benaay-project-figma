@@ -27,7 +27,8 @@
     padding: 12px;
     top: 30px;
     width: 128px;
-    right: -20%;
+    inset-inline-end: 0;
+    inset-inline-start: auto;
     height: 120px;
     border: 1px solid var(--color-border-lighter);
     background-color: var(--color-bg-white);

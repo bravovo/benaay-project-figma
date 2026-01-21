@@ -23,12 +23,16 @@
     height: 38px;
 }
 
+html[dir="rtl"] .logo-slider {
+    --logo-slide-direction: -1;
+}
+
 @keyframes scroll {
     from {
         transform: translateX(0);
     }
     to {
-        transform: translateX(-50%);
+        transform: translateX(calc(-50% * var(--logo-slide-direction)));
     }
 }
 

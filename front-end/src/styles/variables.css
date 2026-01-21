@@ -51,4 +51,6 @@
     --text-h2: clamp(26px, 1.8vw + 10px, 36px);
     --text-h3: clamp(16px, 2.2vw, 28px);
     --text-body: clamp(16px, 0.6vw + 14px, 20px);
+
+    --logo-slide-direction: 1;
 }
