@@ -7,35 +7,35 @@ import comparePrices from "../../assets/icons/compare-prices.svg";
 import uploadList from "../../assets/icons/upload-list.svg";
 
 import "./OurAdvantages.css";
-
-const advantages = [
-    {
-        icon: fastDeliveryIcon,
-        title: "Fast delivery",
-        description:
-            "Receive your order quickly — guaranteed delivery across all regions of the Kingdom",
-    },
-    {
-        icon: comparePrices,
-        title: "Compare prices",
-        description:
-            "Get instant quotes from trusted suppliers and choose the best offer for your needs",
-    },
-    {
-        icon: uploadList,
-        title: "Upload your list",
-        description:
-            "Upload a photo or PDF of your materials list — we’ll find matching products for you",
-    },
-];
+import { useTranslation } from "react-i18next";
 
 function Advantages() {
+    const { t } = useTranslation();
+
+    const advantages = [
+        {
+            icon: fastDeliveryIcon,
+            title: t("home.advantages.fastDelivery.title"),
+            description: t("home.advantages.fastDelivery.description"),
+        },
+        {
+            icon: comparePrices,
+            title: t("home.advantages.comparePrices.title"),
+            description: t("home.advantages.comparePrices.description"),
+        },
+        {
+            icon: uploadList,
+            title: t("home.advantages.uploadList.title"),
+            description: t("home.advantages.uploadList.description"),
+        },
+    ];
+
     return (
         <section className="advantages-section">
             <Container>
                 <SectionText
-                    title="Our advantages"
-                    paragraph="We combine quality, speed and care so that you get the best result without unnecessary effort."
+                    title={t("home.advantages.sectionTitle")}
+                    paragraph={t("home.advantages.sectionDescription")}
                     width={900}
                     gap={20}
                 />

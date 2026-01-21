@@ -1,3 +1,133 @@
 {
-    "appTitle": "Benaay"
+    "appTitle": "Benaay",
+    "home": {
+        "hero": {
+            "title": "Bannai - Building Materials Market",
+            "description": "B2B platform specializing in plumbing and building materials compare prices and order from certified suppliers",
+            "startButton": "Start now",
+            "browseButton": "Browse the catalog"
+        },
+        "header": {
+            "link1": "Link 1",
+            "link2": "Link 2",
+            "link3": "Link 3",
+            "link4": "Link 4",
+            "link5": "Link 5",
+            "searchIconTitle": "Search Icon",
+            "cartIconTitle": "Shopping cart icon",
+            "loginButton": "Log In",
+            "logoutButton": "Log Out"
+        },
+        "headerMenu": {
+            "title": "Menu",
+            "link1": "Link 1",
+            "link2": "Link 2",
+            "link3": "Link 3",
+            "link4": "Link 4",
+            "link5": "Link 5",
+            "loginButton": "Log In",
+            "logoutButton": "Log Out"
+        },
+        "approvedSuppliers": {
+            "title": "Our approved suppliers",
+            "description": "We work only with verified suppliers to ensure quality, reliability, and fair pricing for every order",
+            "supplierLogoAlt": "Supplier {{number}} Logo",
+            "logoTitle": "Logo"
+        },
+        "advantages": {
+            "sectionTitle": "Our advantages",
+            "sectionDescription": "We combine quality, speed and care so that you get the best result without unnecessary effort.",
+            "fastDelivery": {
+                "title": "Fast delivery",
+                "description": "Receive your order quickly — guaranteed delivery across all regions of the Kingdom"
+            },
+            "comparePrices": {
+                "title": "Compare prices",
+                "description": "Get instant quotes from trusted suppliers and choose the best offer for your needs"
+            },
+            "uploadList": {
+                "title": "Upload your list",
+                "description": "Upload a photo or PDF of your materials list — we'll find matching products for you"
+            }
+        },
+        "categories": {
+            "sectionTitle": "Main categories",
+            "sectionDescription": "Quickly find the materials you need. Choose a category and explore ready offers from trusted suppliers",
+            "plumbing": {
+                "title": "Plumbing connections",
+                "description": "Durable connectors for reliable water flow in any plumbing system"
+            },
+            "upvc": {
+                "title": "UPVC fittings",
+                "description": "Lightweight, corrosion-resistant fittings for modern piping solutions"
+            },
+            "ppr": {
+                "title": "PPR fittings",
+                "description": "High-pressure, heat-resistant fittings built for long-term performance"
+            }
+        },
+        "getStarted": {
+            "title": "Ready to get started?",
+            "description": "Join hundreds of contractors and plumbers who use Bannai to save time and money",
+            "registerButton": "Register now for free"
+        },
+        "footer": {
+            "brandName": "Bannai",
+            "tagline": "Join hundreds of contractors and plumbers who use Bannai to save time and money",
+            "links": {
+                "insulation": "Insulation materials",
+                "electrical": "Electrical supplies",
+                "paints": "Exterior paints",
+                "powerTools": "Power tools",
+                "health": "Health products",
+                "safety": "Safety equipment",
+                "pipes": "Pipes and valves",
+                "handTools": "Hand tools"
+            },
+            "contact": {
+                "email": "hi@untitledui.com",
+                "location": "100 Smith Street Collingwood VIC 3066 AU",
+                "phone": "+1 (555) 000-0000"
+            },
+            "copyright": "© 2025 Logo. All rights reserved.",
+            "legalLinks": {
+                "terms": "Terms",
+                "privacy": "Privacy",
+                "cookies": "Cookies"
+            }
+        }
+    },
+    "modal": {
+        "closeAlt": "Close Modal"
+    },
+    "loginForm": {
+        "title": "Enter the office",
+        "description": "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id.",
+        "loginPlaceholder": "Login or e-mail",
+        "passwordPlaceholder": "Enter your password",
+        "showPasswordLabel": "Show password",
+        "hidePasswordLabel": "Hide password",
+        "seePasswordAlt": "See password",
+        "forgotPassword": "Forgot your password?",
+        "signInButton": "Sign in",
+        "noAccountText": "Don't have an account yet?",
+        "registerLink": "Register"
+    },
+    "registerForm": {
+        "title": "Registration",
+        "description": "Lorem ipsum dolor sit amet consectetur. Sit nisl vulputate euismod et id.",
+        "fullNamePlaceholder": "Full Name",
+        "emailPlaceholder": "E-mail",
+        "passwordPlaceholder": "Enter your password",
+        "showPasswordLabel": "Show password",
+        "hidePasswordLabel": "Hide password",
+        "seePasswordAlt": "See password",
+        "signUpButton": "Sign up",
+        "alreadyRegisteredText": "Already registered?",
+        "loginLink": "Login"
+    },
+    "search": {
+        "placeholder": "Search...",
+        "ariaLabel": "Search products"
+    }
 }

@@ -6,8 +6,10 @@ import { openModal } from "../../state/slices/modalSlice";
 import { logout } from "../../state/slices/userSlice";
 import { transparentBtn } from "../../styles/styledObjects";
 import Button from "../button/Button";
+import { useTranslation } from "react-i18next";
 
 function HeaderMenu() {
+    const { t } = useTranslation();
     const user = useSelector((state) => state.user);
     const dispatch = useDispatch();
 
@@ -22,20 +24,20 @@ function HeaderMenu() {
     return (
         <div className="header-menu-container">
             <div className="menu-head">
-                <h1>Menu</h1>
+                <h1>{t("home.headerMenu.title")}</h1>
                 <LanguageSelect languages={languages} color="#206BB6" />
             </div>
             <div className="menu-links">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
-                <a href="#">Link 4</a>
-                <a href="#">Link 5</a>
+                <a href="#">{t("home.headerMenu.link1")}</a>
+                <a href="#">{t("home.headerMenu.link2")}</a>
+                <a href="#">{t("home.headerMenu.link3")}</a>
+                <a href="#">{t("home.headerMenu.link4")}</a>
+                <a href="#">{t("home.headerMenu.link5")}</a>
             </div>
             <div className="menu-button">
                 {user.isLoggedIn ? (
                     <Button
-                        title="Log Out"
+                        title={t("home.headerMenu.logoutButton")}
                         onClick={onlogoutClick}
                         styles={{
                             ...transparentBtn,
@@ -45,7 +47,7 @@ function HeaderMenu() {
                     />
                 ) : (
                     <Button
-                        title="Log In"
+                        title={t("home.headerMenu.loginButton")}
                         onClick={onLoginClick}
                         styles={{
                             ...transparentBtn,

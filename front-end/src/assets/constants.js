@@ -11,7 +11,7 @@ export const languages = [
     },
 ];
 
-export const categories = [
+export const getCategoriesConfig = (t) => [
     {
         styles: {
             container: { backgroundColor: "var(--category-plumbing-bg)" },
@@ -22,9 +22,8 @@ export const categories = [
             },
             number: { backgroundColor: "var(--category-plumbing-secondary)" },
         },
-        title: "Plumbing connections",
-        description:
-            "Durable connectors for reliable water flow in any plumbing system",
+        title: t("home.categories.plumbing.title"),
+        description: t("home.categories.plumbing.description"),
         link: "#",
     },
     {
@@ -37,9 +36,8 @@ export const categories = [
             },
             number: { backgroundColor: "var(--category-upvc-secondary)" },
         },
-        title: "UPVC fittings",
-        description:
-            "Lightweight, corrosion-resistant fittings for modern piping solutions",
+        title: t("home.categories.upvc.title"),
+        description: t("home.categories.upvc.description"),
         link: "#",
     },
     {
@@ -52,9 +50,8 @@ export const categories = [
             },
             number: { backgroundColor: "var(--category-ppr-secondary)" },
         },
-        title: "PPR fittings",
-        description:
-            "High-pressure, heat-resistant fittings built for long-term performance",
+        title: t("home.categories.ppr.title"),
+        description: t("home.categories.ppr.description"),
         link: "#",
     },
 ];

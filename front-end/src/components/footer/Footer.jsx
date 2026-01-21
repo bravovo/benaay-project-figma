@@ -7,25 +7,28 @@ import email from "../../assets/icons/email.svg";
 import location from "../../assets/icons/location.svg";
 import phone from "../../assets/icons/phone.svg";
 import Contact from "../contact/Contact";
+import { useTranslation } from "react-i18next";
 
-const contacts = [
-    {
-        icon: email,
-        text: "hi@untitledui.com",
-        link: "mailto:hi@untitledui.com",
-    },
-    {
-        icon: location,
-        text: "100 Smith Street Collingwood VIC 3066 AU",
-        link: "#",
-    },
-    {
-        icon: phone,
-        text: "+1 (555) 000-0000",
-        link: "tel:+15550000000",
-    },
-];
 function Footer() {
+    const { t } = useTranslation();
+
+    const contacts = [
+        {
+            icon: email,
+            text: t("home.footer.contact.email"),
+            link: `mailto:${t("home.footer.contact.email")}`,
+        },
+        {
+            icon: location,
+            text: t("home.footer.contact.location"),
+            link: "#",
+        },
+        {
+            icon: phone,
+            text: t("home.footer.contact.phone"),
+            link: `tel:${t("home.footer.contact.phone").replace(/\s+/g, "")}`,
+        },
+    ];
     return (
         <footer className="footer-container">
             <Container>
@@ -41,22 +44,21 @@ function Footer() {
                                 alt="Hammer Icon"
                                 className="header-icon"
                             />
-                            Bennay
+                            {t("home.footer.brandName")}
                         </a>
                         <p className="footer-main-para">
-                            Join hundreds of contractors and plumbers who use
-                            Bannai to save time and money
+                            {t("home.footer.tagline")}
                         </p>
                     </div>
                     <div className="footer-links">
-                        <a href="#">Insulation materials</a>
-                        <a href="#">Electrical supplies</a>
-                        <a href="#">Exterior paints</a>
-                        <a href="#">Power tools</a>
-                        <a href="#">Health products</a>
-                        <a href="#">Safety equipment</a>
-                        <a href="#">Pipes and valves</a>
-                        <a href="#">Hand tools</a>
+                        <a href="#">{t("home.footer.links.insulation")}</a>
+                        <a href="#">{t("home.footer.links.electrical")}</a>
+                        <a href="#">{t("home.footer.links.paints")}</a>
+                        <a href="#">{t("home.footer.links.powerTools")}</a>
+                        <a href="#">{t("home.footer.links.health")}</a>
+                        <a href="#">{t("home.footer.links.safety")}</a>
+                        <a href="#">{t("home.footer.links.pipes")}</a>
+                        <a href="#">{t("home.footer.links.handTools")}</a>
                     </div>
                     <div className="footer-contacts">
                         {contacts &&
@@ -68,11 +70,11 @@ function Footer() {
             </Container>
             <Container>
                 <div className="rights-container">
-                    <p>© 2025 Logo. All rights reserved.</p>
+                    <p>{t("home.footer.copyright")}</p>
                     <div className="rights-links">
-                        <a href="#">Terms</a>
-                        <a href="#">Privacy</a>
-                        <a href="#">Cookies</a>
+                        <a href="#">{t("home.footer.legalLinks.terms")}</a>
+                        <a href="#">{t("home.footer.legalLinks.privacy")}</a>
+                        <a href="#">{t("home.footer.legalLinks.cookies")}</a>
                     </div>
                 </div>
             </Container>

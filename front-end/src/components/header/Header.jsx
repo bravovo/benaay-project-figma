@@ -69,23 +69,23 @@ function Header() {
                             {t("appTitle")}
                         </a>
                         <div className="header-links">
-                            <a href="#">Link 1</a>
-                            <a href="#">Link 2</a>
-                            <a href="#">Link 3</a>
-                            <a href="#">Link 4</a>
-                            <a href="#">Link 5</a>
+                            <a href="#">{t("home.header.link1")}</a>
+                            <a href="#">{t("home.header.link2")}</a>
+                            <a href="#">{t("home.header.link3")}</a>
+                            <a href="#">{t("home.header.link4")}</a>
+                            <a href="#">{t("home.header.link5")}</a>
                         </div>
                         <div className="header-buttons">
                             <IconButton
                                 icon={search}
-                                title="Search Icon"
+                                title={t("home.header.searchIconTitle")}
                                 onClick={toggleSearch}
                                 ref={searchButtonRef}
                                 className="search-icon"
                             />
                             <IconButton
                                 icon={shoppingCart}
-                                title="Shopping cart icon"
+                                title={t("home.header.cartIconTitle")}
                                 onClick={() => {}}
                                 className="shopping-cart-icon"
                             />
@@ -119,13 +119,13 @@ function Header() {
                                 <LanguageSelect languages={languages} />
                                 {user.isLoggedIn ? (
                                     <Button
-                                        title="Log Out"
+                                        title={t("home.header.logoutButton")}
                                         onClick={onlogoutClick}
                                         styles={transparentBtn}
                                     />
                                 ) : (
                                     <Button
-                                        title="Log In"
+                                        title={t("home.header.loginButton")}
                                         onClick={onLoginClick}
                                         styles={transparentBtn}
                                     />

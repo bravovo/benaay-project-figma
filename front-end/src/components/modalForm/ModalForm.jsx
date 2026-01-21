@@ -2,6 +2,7 @@ import "./ModalForm.css";
 
 import closeModal from "../../assets/icons/x.svg";
 import { useEffect, useRef } from "react";
+import { useTranslation } from "react-i18next";
 
 function ModalForm({
     title,
@@ -12,6 +13,7 @@ function ModalForm({
     children,
     onSubmit,
 }) {
+    const { t } = useTranslation();
     const formRef = useRef(null);
 
     useEffect(() => {
@@ -52,7 +54,7 @@ function ModalForm({
             >
                 {isClosable && (
                     <button className="modal-close-btn" onClick={onClose}>
-                        <img src={closeModal} alt="Close Modal" />
+                        <img src={closeModal} alt={t("modal.closeAlt")} />
                     </button>
                 )}
                 <div className="modal-text">

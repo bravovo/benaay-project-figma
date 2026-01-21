@@ -3,15 +3,19 @@ import SectionText from "../sectionText/SectionText";
 import Category from "../category/Category";
 import { Container } from "../layout";
 
-import { categories } from "../../assets/constants";
+import { getCategoriesConfig } from "../../assets/constants";
+import { useTranslation } from "react-i18next";
 
 function MainCategories() {
+    const { t } = useTranslation();
+    const categories = getCategoriesConfig(t);
+
     return (
         <section className="main-cats-section">
             <Container>
                 <SectionText
-                    title="Main categories"
-                    paragraph="Quickly find the materials you need. Choose a category and explore ready offers from trusted suppliers"
+                    title={t("home.categories.sectionTitle")}
+                    paragraph={t("home.categories.sectionDescription")}
                     width={980}
                     gap={20}
                 />
