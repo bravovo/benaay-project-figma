@@ -3,6 +3,8 @@
     height: 100vh;
     z-index: 20000;
     position: fixed;
+    top: 0;
+    left: 0;
     backdrop-filter: blur(4px);
     display: flex;
     justify-content: center;
@@ -10,51 +12,89 @@
     background-color: #03071299;
 }
 
+/* Mobile-first approach: Base styles for 375px viewport */
 .modal-form-container {
-    width: 464px;
+    width: calc(100% - 32px); /* 343px at 375px viewport (375 - 32) */
+    max-width: 343px;
     position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 18px;
+    gap: 24px;
     align-items: center;
     background-color: var(--color-bg-white);
     border-radius: 16px;
-    padding: 50px;
+    padding: 44px 16px;
+}
+
+/* Tablet and larger screens */
+@media (min-width: 768px) {
+    .modal-form-container {
+        max-width: 464px;
+        width: 464px;
+        padding: 50px;
+        gap: 18px;
+    }
 }
 
 .modal-close-btn {
     position: absolute;
-    top: 24px;
-    right: 24px;
+    top: 16px;
+    right: 16px;
     background: transparent;
     border: none;
     cursor: pointer;
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .modal-close-btn {
+        top: 24px;
+        right: 24px;
+    }
+}
+
+.modal-text {
+    width: 100%;
 }
 
 .modal-text h3 {
     color: var(--color-text-darker);
+    font-family: Inter, sans-serif;
     font-weight: 600;
-    font-size: 26px;
-    line-height: 125%;
-    letter-spacing: 0%;
+    font-size: 20px;
+    line-height: 100%;
     text-align: center;
 }
 
+/* Larger screens */
+@media (min-width: 768px) {
+    .modal-text h3 {
+        font-size: 26px;
+        line-height: 125%;
+    }
+}
+
 .modal-text p {
-    font-family: Inter;
+    font-family: Inter, sans-serif;
     font-weight: 400;
-    font-style: Regular;
-    font-size: 16px;
+    font-size: 14px;
     line-height: 150%;
-    letter-spacing: 0%;
     text-align: center;
-    vertical-align: middle;
     color: var(--footer-main-color);
+    margin-top: 8px;
+}
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .modal-text p {
+        font-size: 16px;
+    }
 }
 
 .modal-content {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    width: 100%;
 }
