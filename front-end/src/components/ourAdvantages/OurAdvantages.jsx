@@ -1,6 +1,6 @@
 import { Container } from "../layout/index";
 import SectionText from "../sectionText/SectionText";
-import Advantage from "../advantage/Advantage";
+import Advantage from "./advantage/Advantage";
 
 import fastDeliveryIcon from "../../assets/icons/advantages/fast-delivery.svg";
 import comparePrices from "../../assets/icons/advantages/compare-prices.svg";

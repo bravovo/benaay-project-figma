@@ -7,7 +7,7 @@ import logo4 from "../../assets/icons/suppliers/Logomark-4.svg";
 import logo5 from "../../assets/icons/suppliers/Logomark-5.svg";
 import logo6 from "../../assets/icons/suppliers/Logomark-6.svg";
 import logo7 from "../../assets/icons/suppliers/Logomark-7.svg";
-import SliderLogo from "../sliderLogo/SliderLogo";
+import SliderLogo from "./sliderLogo/SliderLogo";
 import SectionText from "../sectionText/SectionText";
 import { Container } from "../layout";
 import { useTranslation } from "react-i18next";

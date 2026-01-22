@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "./Header.css";
 
 import { transparentBtn } from "../../../../styles/styledObjects";
@@ -26,6 +26,14 @@ function Header() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
     const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+    useEffect(() => {
+        if (headerMenuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "auto";
+        }
+    }, [headerMenuOpen]);
 
     const onLoginClick = () => {
         dispatch(openModal({ type: "login" }));

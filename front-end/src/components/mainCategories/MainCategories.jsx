@@ -1,6 +1,6 @@
 import "./MainCategories.css";
 import SectionText from "../sectionText/SectionText";
-import Category from "../category/Category";
+import Category from "./category/Category";
 import { Container } from "../layout";
 
 import { getCategoriesConfig } from "../../data/constants";
