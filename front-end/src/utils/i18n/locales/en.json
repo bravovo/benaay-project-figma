@@ -9,7 +9,8 @@
             "title": "Bannai - Building Materials Market",
             "description": "B2B platform specializing in plumbing and building materials compare prices and order from certified suppliers",
             "startButton": "Start now",
-            "browseButton": "Browse the catalog"
+            "browseButton": "Browse the catalog",
+            "welcome": "Welcome back"
         },
         "header": {
             "link1": "Link 1",

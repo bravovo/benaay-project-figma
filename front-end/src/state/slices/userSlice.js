@@ -15,17 +15,61 @@ export const userSlice = createSlice({
     reducers: {},
     extraReducers: (builder) => {
         builder
+            .addCase(getUser.fulfilled, (state, action) => {
+                console.log("PAYLOAD", action.payload.token);
+                return {
+                    ...state,
+                    ...action.payload,
+                    id: action.payload._id,
+                    isLoggedIn: true,
+                };
+            })
+            .addCase(getUser.rejected, (state) => {
+                return { ...state, isLoggedIn: false };
+            })
             .addCase(login.fulfilled, (state, action) => {
+                localStorage.setItem("token", action.payload.token);
                 return { ...state, ...action.payload, isLoggedIn: true };
             })
             .addCase(login.rejected, (state) => {
                 return { ...state, isLoggedIn: false };
             })
             .addCase(logout.fulfilled, () => {
+                localStorage.removeItem("token");
                 return { ...initialState };
             });
     },
 });
+
+export const getUser = createAsyncThunk(
+    "user/profile",
+    async (_, { rejectWithValue }) => {
+        try {
+            const response = await axios.get(
+                `${import.meta.env.VITE_API_SERVER_URL}/api/user/profile`,
+                {
+                    headers: {
+                        Authorization: `Bearer ${
+                            localStorage.getItem("token") || ""
+                        }`,
+                    },
+                    withCredentials: true,
+                }
+            );
+
+            if (response.data.success) {
+                const userData = response.data.user;
+                if (response.data.token) {
+                    userData.token = response.data.token;
+                    localStorage.setItem("token", response.data.token);
+                }
+                return userData;
+            }
+        } catch (error) {
+            return rejectWithValue(error.response.data);
+        }
+    }
+);
 
 export const login = createAsyncThunk(
     "user/login",

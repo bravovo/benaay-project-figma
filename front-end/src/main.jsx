@@ -5,11 +5,14 @@ import { store } from "./state/store.js";
 import { Provider } from "react-redux";
 import "./utils/i18n/index.js";
 import LanguageProvider from "./components/languageProvider/LanguageProvider.jsx";
+import UserProvider from "./components/userProvider/UserProvider.jsx";
 
 createRoot(document.getElementById("root")).render(
     <Provider store={store}>
         <LanguageProvider>
-            <App />
+            <UserProvider>
+                <App />
+            </UserProvider>
         </LanguageProvider>
     </Provider>
 );

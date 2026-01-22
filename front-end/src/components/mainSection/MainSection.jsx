@@ -30,7 +30,13 @@ function MainSection() {
             <Container>
                 <div className="main-section-content">
                     <div className="main-section-text">
-                        <h1>{t("home.hero.title")}</h1>
+                        {user.isLoggedIn ? (
+                            <h1>
+                                {t("home.hero.welcome")} {user.fullName}!
+                            </h1>
+                        ) : (
+                            <h1>{t("home.hero.title")}</h1>
+                        )}
                         <p>{t("home.hero.description")}</p>
                     </div>
                     <div className="main-section-buttons">
