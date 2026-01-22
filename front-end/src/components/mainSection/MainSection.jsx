@@ -15,7 +15,7 @@ function MainSection() {
     const user = useSelector((state) => state.user);
 
     const onStartClick = () => {
-        dispatch(openModal({ type: "login" }));
+        dispatch(openModal({ type: "register" }));
     };
 
     return (
@@ -31,9 +31,7 @@ function MainSection() {
                 <div className="main-section-content">
                     <div className="main-section-text">
                         <h1>{t("home.hero.title")}</h1>
-                        <p>
-                            {t("home.hero.description")}
-                        </p>
+                        <p>{t("home.hero.description")}</p>
                     </div>
                     <div className="main-section-buttons">
                         {user.isLoggedIn ? null : (

@@ -69,7 +69,7 @@ function Footer() {
                 </div>
             </Container>
             <Container>
-                <div className="rights-container">
+                <div className="rights-container" dir="ltr">
                     <p>{t("home.footer.copyright")}</p>
                     <div className="rights-links">
                         <a href="#">{t("home.footer.legalLinks.terms")}</a>

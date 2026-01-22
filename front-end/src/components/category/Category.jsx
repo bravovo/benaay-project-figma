@@ -1,8 +1,11 @@
 import "./Category.css";
 
 import { ArrowUpRight } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 function Category({ styles, number, title, description, link }) {
+    const { t } = useTranslation();
+
     return (
         <div className="category-container" style={styles.container}>
             <div className="number-title-container">
@@ -14,7 +17,7 @@ function Category({ styles, number, title, description, link }) {
             <div className="desc-button-container">
                 <p className="category-description">{description}</p>
                 <a href={link} style={styles.link} className="category-link">
-                    Browse products
+                    {t("home.categories.browseButton")}
                     <ArrowUpRight
                         size={20}
                         alt="Arrow up right"

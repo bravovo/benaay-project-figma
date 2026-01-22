@@ -1,3 +1,138 @@
 {
-    "appTitle": "بيناي"
+    "appTitle": "بيناي",
+    "language": {
+        "en": { "short": "Eng", "long": "English" },
+        "ar": { "short": "العربية", "long": "العربية" }
+    },
+    "home": {
+        "hero": {
+            "title": "بناي - سوق مواد البناء",
+            "description": "منصة B2B متخصصة في مواد السباكة والبناء، قارن الأسعار واطلب من الموردين المعتمدين",
+            "startButton": "ابدأ الآن",
+            "browseButton": "تصفح الكتالوج"
+        },
+        "header": {
+            "link1": "وصلة",
+            "link2": "وصلة",
+            "link3": "وصلة",
+            "link4": "وصلة",
+            "link5": "وصلة",
+            "searchIconTitle": "Search Icon",
+            "cartIconTitle": "Shopping cart icon",
+            "loginButton": "تسجيل الدخول",
+            "logoutButton": "تسجيل الخروج"
+        },
+        "headerMenu": {
+            "title": "قائمة طعام",
+            "link1": "وصلة",
+            "link2": "وصلة",
+            "link3": "وصلة",
+            "link4": "وصلة",
+            "link5": "وصلة",
+            "loginButton": "تسجيل الدخول",
+            "logoutButton": "تسجيل الخروج"
+        },
+        "approvedSuppliers": {
+            "title": "الموردين المعتمدين لدينا",
+            "description": "نحن نعمل فقط مع الموردين المعتمدين لضمان الجودة والموثوقية والأسعار العادلة لكل طلب",
+            "supplierLogoAlt": "Supplier {{number}} Logo",
+            "logoTitle": "Logo"
+        },
+        "advantages": {
+            "sectionTitle": "مزايانا",
+            "sectionDescription": "نحن نجمع بين الجودة والسرعة والعناية حتى تحصل على أفضل نتيجة دون بذل أي جهد غير ضروري.",
+            "fastDelivery": {
+                "title": "توصيل سريع",
+                "description": "استلم طلبك بسرعة - توصيل مضمون لجميع  مناطق المملكة"
+            },
+            "comparePrices": {
+                "title": "مقارنة الأسعار",
+                "description": "احصل على عروض أسعار فورية من الموردين الموثوق بهم واختر أفضل عرض يناسب احتياجاتك"
+            },
+            "uploadList": {
+                "title": "قم بتحميل قائمتك",
+                "description": "قم بتحميل صورة أو ملف PDF لقائمة المواد الخاصة بك - وسنعمل على العثور على المنتجات المطابقة لك"
+            }
+        },
+        "categories": {
+            "sectionTitle": "الفئات الرئيسية",
+            "sectionDescription": "ابحث بسرعة عن المواد التي تحتاجها. اختر فئة واستكشف العروض الجاهزة من موردين موثوقين.",
+            "plumbing": {
+                "title": "توصيلات السباكة",
+                "description": "موصلات متينة لضمان تدفق مياه موثوق به في أي نظام سباكة"
+            },
+            "upvc": {
+                "title": "تجهيزات UPVC",
+                "description": "تجهيزات خفيفة الوزن ومقاومة للتآكل لحلول الأنابيب الحديثة"
+            },
+            "ppr": {
+                "title": "تجهيزات PPR",
+                "description": "تجهيزات مقاومة للضغط العالي والحرارة مصممة للأداء طويل الأمد"
+            },
+            "browseButton": "تصفح المنتجات"
+        },
+        "getStarted": {
+            "title": "هل أنت مستعد للبدء؟",
+            "description": "انضم إلى مئات المقاولين والسباكين الذين يستخدمون Bannai لتوفير الوقت والمال",
+            "registerButton": "سجل الآن مجانًا"
+        },
+        "footer": {
+            "brandName": "Benaay",
+            "tagline": "انضم إلى مئات المقاولين والسبّاكين الذين يستخدمون منصة بَنّاي لتوفير الوقت والمال",
+            "links": {
+                "insulation": "المستلزمات الكهربائية",
+                "electrical": "مواد العزل",
+                "paints": "أدوات الطاقة",
+                "powerTools": "الدهانات الخارجية",
+                "health": "معدات السلامة",
+                "safety": "المنتجات الصحية",
+                "pipes": "الأدوات اليدوية",
+                "handTools": "الأنابيب والصمامات"
+            },
+            "contact": {
+                "email": "hi@untitledui.com",
+                "location": "100 Smith Street Collingwood VIC 3066 AU",
+                "phone": "+1 (555) 000-0000"
+            },
+            "copyright": "© 2025 Logo. All rights reserved.",
+            "legalLinks": {
+                "terms": "Terms",
+                "privacy": "Privacy",
+                "cookies": "Cookies"
+            }
+        }
+    },
+    "modal": {
+        "closeAlt": "Close Modal"
+    },
+    "loginForm": {
+        "title": "ادخل المكتب",
+        "description": "قم بتسجيل الدخول للوصول إلى مساحة العمل الخاصة بك ومواصلة العمل",
+        "loginPlaceholder": "تسجيل الدخول أو البريد الإلكتروني",
+        "passwordPlaceholder": "أدخل كلمة المرور الخاصة بك",
+        "showPasswordLabel": "Show password",
+        "hidePasswordLabel": "Hide password",
+        "seePasswordAlt": "See password",
+        "forgotPassword": "نسيت كلمة السر؟",
+        "signInButton": "تسجيل الدخول",
+        "noAccountText": "ليس لديك حساب حتى الآن؟",
+        "registerLink": "يسجل"
+    },
+    "registerForm": {
+        "title": "تسجيل",
+        "description": "أنشئ حسابك للوصول إلى مكتبك والبدء فورًا.",
+        "fullNamePlaceholder": "الاسم الكامل",
+        "emailPlaceholder": "بريد إلكتروني",
+        "passwordPlaceholder": "أدخل كلمة المرور الخاصة بك",
+        "showPasswordLabel": "Show password",
+        "hidePasswordLabel": "Hide password",
+        "seePasswordAlt": "See password",
+        "signUpButton": "تسجيل الدخول",
+        "alreadyRegisteredText": "هل قمت بالتسجيل بالفعل؟ تسجيل ",
+        "loginLink": "الدخول"
+    },
+    "search": {
+        "placeholder": "يبحث...",
+        "ariaLabel": "Search products"
+    }
 }

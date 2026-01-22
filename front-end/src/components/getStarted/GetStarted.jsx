@@ -15,7 +15,7 @@ function GetStarted() {
     const user = useSelector((state) => state.user);
 
     const onStartClick = () => {
-        dispatch(openModal({ type: "login" }));
+        dispatch(openModal({ type: "register" }));
     };
 
     return (

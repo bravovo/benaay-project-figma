@@ -6,16 +6,25 @@
 
 .lang-select-button {
     display: flex;
+    flex-direction: row;
     align-items: center;
+    justify-content: center;
     gap: 8px;
 
     background: var(--color-bg-transparent);
     border: none;
     cursor: pointer;
 
+    font-family: inherit;
     font-size: 14px;
     font-weight: 600;
     color: var(--color-text-white);
+}
+
+html[dir="rtl"] {
+    .lang-select-container {
+        width: 66px;
+    }
 }
 
 .lang-select-button:focus {

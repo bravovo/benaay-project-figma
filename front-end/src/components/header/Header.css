@@ -23,9 +23,9 @@
 }
 
 .icon-container {
-    width: 139px;
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     align-items: center;
     gap: 10px;
     line-height: 24px;
@@ -83,6 +83,12 @@
     .header-container {
         width: 100%;
         padding: 0 4px;
+    }
+
+    html[dir="rtl"] {
+        .header-buttons {
+            flex-direction: row-reverse;
+        }
     }
 
     .header-buttons {

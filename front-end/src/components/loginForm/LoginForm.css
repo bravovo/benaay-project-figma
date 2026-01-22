@@ -33,6 +33,13 @@
     cursor: pointer;
 }
 
+html[dir="rtl"] {
+    .password-toggle {
+        right: auto;
+        left: 16px;
+    }
+}
+
 .login-form-input input {
     background-color: var(--color-bg-transparent);
     border: 1px solid var(--color-border-light);

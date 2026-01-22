@@ -3,8 +3,10 @@ import "./LanguageSelect.css";
 import { ChevronDown } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
 import { setLang } from "../../state/slices/langSlice";
+import { useTranslation } from "react-i18next";
 
 function LanguageSelect({ languages, color = "white" }) {
+    const { t } = useTranslation();
     const dispatch = useDispatch();
     const language = useSelector((state) => state.lang);
     const [isOpened, setIsOpened] = useState(false);
@@ -20,9 +22,16 @@ function LanguageSelect({ languages, color = "white" }) {
                 className="lang-select-button"
                 style={{ color: color }}
                 onClick={() => setIsOpened((prev) => !prev)}
+                dir="ltr"
             >
-                <span className="selected-lang-title">{language.short}</span>
-                <ChevronDown size={20} color={color} />
+                <span className="selected-lang-title">
+                    {t(`language.${language.i18n}.short`)}
+                </span>
+                <ChevronDown
+                    size={20}
+                    color={color}
+                    style={{ alignSelf: "center" }}
+                />
             </button>
 
             {isOpened && (
@@ -40,7 +49,7 @@ function LanguageSelect({ languages, color = "white" }) {
                                                 : "var(--color-bg-white)",
                                     }}
                                 >
-                                    {lang.name}
+                                    {t(`language.${lang.i18n}.long`)}
                                 </button>
                             );
                         })}
