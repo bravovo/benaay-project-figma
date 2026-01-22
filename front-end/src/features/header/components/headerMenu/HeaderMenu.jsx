@@ -1,11 +1,11 @@
 import "./HeaderMenu.css";
 import LanguageSelect from "../langSelect/LanguageSelect";
-import { languages } from "../../assets/constants";
+import { languages } from "../../../../data/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { openModal } from "../../state/slices/modalSlice";
-import { logout } from "../../state/slices/userSlice";
-import { transparentBtn } from "../../styles/styledObjects";
-import Button from "../button/Button";
+import { openModal } from "../../../../state/slices/modalSlice";
+import { logout } from "../../../../state/slices/userSlice";
+import { transparentBtn } from "../../../../styles/styledObjects";
+import Button from "../../../../components/button/Button";
 import { useTranslation } from "react-i18next";
 
 function HeaderMenu() {

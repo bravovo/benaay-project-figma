@@ -3,7 +3,7 @@ import SectionText from "../sectionText/SectionText";
 import Category from "../category/Category";
 import { Container } from "../layout";
 
-import { getCategoriesConfig } from "../../assets/constants";
+import { getCategoriesConfig } from "../../data/constants";
 import { useTranslation } from "react-i18next";
 
 function MainCategories() {

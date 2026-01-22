@@ -1,11 +1,11 @@
-import { Container } from "../layout";
+import { Container } from "../../../../components/layout";
 import "./Footer.css";
 
-import hammer from "../../assets/icons/hammer.svg";
+import hammer from "../../../../assets/icons/hammer.svg";
 
-import email from "../../assets/icons/email.svg";
-import location from "../../assets/icons/location.svg";
-import phone from "../../assets/icons/phone.svg";
+import email from "../../assets/email.svg";
+import location from "../../assets/location.svg";
+import phone from "../../assets/phone.svg";
 import Contact from "../contact/Contact";
 import { useTranslation } from "react-i18next";
 

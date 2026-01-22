@@ -1,10 +1,10 @@
 import "./RegisterForm.css";
 import { useState } from "react";
 
-import eye from "../../assets/icons/eye.svg";
-import { coloredBtn } from "../../styles/styledObjects";
-import Button from "../button/Button";
-import ModalForm from "../modalForm/ModalForm";
+import eye from "../../../../assets/icons/eye.svg";
+import { coloredBtn } from "../../../../styles/styledObjects";
+import Button from "../../../../components/button/Button";
+import ModalForm from "../../../../components/modalForm/ModalForm";
 import axios from "axios";
 import { useTranslation } from "react-i18next";
 
@@ -97,7 +97,10 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
                     type="button"
                 >
                     {t("registerForm.alreadyRegisteredText")}
-                    <span className="login-span"> {t("registerForm.loginLink")}</span>
+                    <span className="login-span">
+                        {" "}
+                        {t("registerForm.loginLink")}
+                    </span>
                 </button>
             </div>
         </ModalForm>

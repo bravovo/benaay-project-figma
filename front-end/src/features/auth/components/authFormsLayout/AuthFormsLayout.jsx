@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closeModal, openModal } from "../../state/slices/modalSlice";
+import { closeModal, openModal } from "../../../../state/slices/modalSlice";
 import LoginForm from "../loginForm/LoginForm";
 import RegisterForm from "../registerForm/RegisterForm";
 import { useEffect } from "react";

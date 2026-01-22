@@ -1,13 +1,13 @@
 import "./LoginForm.css";
 import { useState } from "react";
 
-import { coloredBtn } from "../../styles/styledObjects";
-import ModalForm from "../modalForm/ModalForm";
-import Button from "../button/Button";
+import { coloredBtn } from "../../../../styles/styledObjects";
+import ModalForm from "../../../../components/modalForm/ModalForm";
+import Button from "../../../../components/button/Button";
 
-import eye from "../../assets/icons/eye.svg";
+import eye from "../../../../assets/icons/eye.svg";
 import { useDispatch } from "react-redux";
-import { login } from "../../state/slices/userSlice";
+import { login } from "../../../../state/slices/userSlice";
 import { useTranslation } from "react-i18next";
 
 function LoginForm({ isOpened, onClose, onRegisterClick }) {
@@ -82,7 +82,10 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
                     onClick={onRegisterClick}
                 >
                     {t("loginForm.noAccountText")}
-                    <span className="register-span"> {t("loginForm.registerLink")}</span>
+                    <span className="register-span">
+                        {" "}
+                        {t("loginForm.registerLink")}
+                    </span>
                 </button>
             </div>
         </ModalForm>

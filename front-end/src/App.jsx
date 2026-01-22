@@ -7,9 +7,9 @@ import MainSection from "./components/mainSection/MainSection";
 import OurAdvantages from "./components/ourAdvantages/OurAdvantages";
 import MainCategories from "./components/mainCategories/MainCategories";
 import GetStarted from "./components/getStarted/GetStarted";
-import Footer from "./components/footer/Footer";
-import Header from "./components/header/Header";
-import AuthFormsLayout from "./components/authFormsLayout/AuthFormsLayout";
+import { Footer } from "./features/footer/index";
+import { Header } from "./features/header/index";
+import { AuthFormsLayout } from "./features/auth/index";
 
 function App() {
     return (

@@ -2,9 +2,9 @@ import { Container } from "../layout/index";
 import SectionText from "../sectionText/SectionText";
 import Advantage from "../advantage/Advantage";
 
-import fastDeliveryIcon from "../../assets/icons/fast-delivery.svg";
-import comparePrices from "../../assets/icons/compare-prices.svg";
-import uploadList from "../../assets/icons/upload-list.svg";
+import fastDeliveryIcon from "../../assets/icons/advantages/fast-delivery.svg";
+import comparePrices from "../../assets/icons/advantages/compare-prices.svg";
+import uploadList from "../../assets/icons/advantages/upload-list.svg";
 
 import "./OurAdvantages.css";
 import { useTranslation } from "react-i18next";

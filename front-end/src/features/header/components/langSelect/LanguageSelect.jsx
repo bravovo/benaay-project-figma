@@ -2,7 +2,7 @@ import { useState } from "react";
 import "./LanguageSelect.css";
 import { ChevronDown } from "lucide-react";
 import { useDispatch, useSelector } from "react-redux";
-import { setLang } from "../../state/slices/langSlice";
+import { setLang } from "../../../../state/slices/langSlice";
 import { useTranslation } from "react-i18next";
 
 function LanguageSelect({ languages, color = "white" }) {

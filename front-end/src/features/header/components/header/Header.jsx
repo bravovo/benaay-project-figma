@@ -1,21 +1,21 @@
 import { useState, useRef } from "react";
 import "./Header.css";
 
-import { transparentBtn } from "../../styles/styledObjects";
-import { Container } from "../layout";
-import IconButton from "../iconButton/IconButton";
-import Button from "../button/Button";
+import { transparentBtn } from "../../../../styles/styledObjects";
+import { Container } from "../../../../components/layout";
+import IconButton from "../../../../components/iconButton/IconButton";
+import Button from "../../../../components/button/Button";
 import LanguageSelect from "../langSelect/LanguageSelect";
 import Search from "../search/Search";
 
-import hammer from "../../assets/icons/hammer.svg";
-import search from "../../assets/icons/search.svg";
-import shoppingCart from "../../assets/icons/shopping-cart.svg";
-import { languages } from "../../assets/constants";
+import hammer from "../../../../assets/icons/hammer.svg";
+import search from "../../assets/search.svg";
+import shoppingCart from "../../assets/shopping-cart.svg";
+import { languages } from "../../../../data/constants";
 import { useDispatch, useSelector } from "react-redux";
-import { logout } from "../../state/slices/userSlice";
-import { openModal } from "../../state/slices/modalSlice";
-import menu from "../../assets/icons/menu.svg";
+import { logout } from "../../../../state/slices/userSlice";
+import { openModal } from "../../../../state/slices/modalSlice";
+import menu from "../../assets/menu.svg";
 import HeaderMenu from "../headerMenu/HeaderMenu";
 import { useTranslation } from "react-i18next";
 
