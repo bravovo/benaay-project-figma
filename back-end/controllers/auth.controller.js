@@ -48,6 +48,7 @@ export async function postLogin(req, res, next) {
             success: true,
             accessToken,
             user: {
+                id: user._id,
                 fullName: user.fullName,
                 email: user.email,
             },
@@ -150,7 +151,7 @@ export async function postLogout(req, res, next) {
         res.clearCookie("token", {
             httpOnly: true,
             secure: NODE_ENV === "production",
-            sameSite: "None",
+            sameSite: "Strict",
         });
 
         return res.status(200).json({

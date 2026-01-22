@@ -3,6 +3,8 @@ import { NODE_ENV, PORT, CLIENT_ORIGIN } from "./config/env.js";
 import cors from "cors";
 
 import authRouter from "./routes/auth.route.js";
+import userRouter from "./routes/user.route.js";
+
 import { connectDB } from "./config/database.js";
 import cookieParser from "cookie-parser";
 
@@ -24,6 +26,7 @@ app.use(urlencoded({ extended: true }));
 app.use(cookieParser());
 
 app.use("/api/auth", authRouter);
+app.use("/api/user", userRouter);
 
 app.use((err, req, res, next) => {
     console.error(err);
