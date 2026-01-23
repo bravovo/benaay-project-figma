@@ -44,6 +44,7 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
                     placeholder={t("loginForm.loginPlaceholder")}
                     className="login-input"
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                 />
                 <div className="password-input-container">
                     <input
@@ -51,6 +52,7 @@ function LoginForm({ isOpened, onClose, onRegisterClick }) {
                         name="password"
                         placeholder={t("loginForm.passwordPlaceholder")}
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
                     <button
                         type="button"

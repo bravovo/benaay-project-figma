@@ -18,6 +18,10 @@ function GetStarted() {
         dispatch(openModal({ type: "register" }));
     };
 
+    if (user.isLoggedIn) {
+        return null;
+    }
+
     return (
         <section className="get-started-section">
             <Container>

@@ -34,7 +34,7 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
 
             onLoginClick();
         } catch (error) {
-            console.error("Login failed:", error);
+            console.error("Register failed:", error);
         }
     };
 
@@ -54,6 +54,7 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
                     placeholder={t("registerForm.fullNamePlaceholder")}
                     className="register-input"
                     onChange={(e) => setFullName(e.target.value)}
+                    required
                 />
                 <input
                     type="text"
@@ -61,6 +62,7 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
                     placeholder={t("registerForm.emailPlaceholder")}
                     className="register-input"
                     onChange={(e) => setEmail(e.target.value)}
+                    required
                 />
                 <div className="password-input-container">
                     <input
@@ -69,6 +71,7 @@ function RegisterForm({ isOpened, onClose, onLoginClick }) {
                         placeholder={t("registerForm.passwordPlaceholder")}
                         className="password"
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
                     <button
                         type="button"
