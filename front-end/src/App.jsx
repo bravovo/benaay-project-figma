@@ -1,10 +1,14 @@
 import "./App.css";
 
-import { RouterProvider } from "react-router-dom";
-import { router } from "./router/router.jsx";
+import { BrowserRouter } from "react-router-dom";
+import Router from "./router/router";
 
 function App() {
-    return <RouterProvider router={router} />;
+    return (
+        <BrowserRouter>
+            <Router />
+        </BrowserRouter>
+    );
 }
 
 export default App;

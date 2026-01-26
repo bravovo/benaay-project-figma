@@ -1,0 +1,34 @@
+.cat-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+    padding-right: 0;
+    border: 1px solid var(--color-border-light);
+    background-color: transparent;
+    border-radius: 12px;
+    gap: 16px;
+}
+
+.cat-content {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+    padding-right: 7px;
+    margin-right: 13px;
+}
+
+.cat-content::-webkit-scrollbar {
+    width: 4px;
+}
+
+.cat-content::-webkit-scrollbar-track {
+    background: var(--color-border-light);
+    border-radius: 10px;
+}
+
+.cat-content::-webkit-scrollbar-thumb {
+    background: var(--color-text-light-gray);
+    border-radius: 10px;
+}

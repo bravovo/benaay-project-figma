@@ -1,0 +1,32 @@
+.cat-search-container {
+    padding: 12px 16px;
+    border: 1px solid var(--color-border-light);
+    background-color: transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    height: 48px;
+}
+
+.cat-search-input {
+    width: 100%;
+    border: none;
+    outline: none;
+
+    font-family: "Inter";
+    color: var(--footer-add-color);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 150%;
+    letter-spacing: 0%;
+}
+
+.search-button {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

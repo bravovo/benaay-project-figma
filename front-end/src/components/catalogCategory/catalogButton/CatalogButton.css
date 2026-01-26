@@ -1,0 +1,38 @@
+.chevron-img {
+    transition: transform 0.3s ease;
+}
+
+.chevron-img-open {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+.cat-button {
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    padding-right: 24px;
+}
+
+.cat-button:focus {
+    outline: none;
+}
+
+.cat-text {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.cat-text h2 {
+    width: 100%;
+    text-align: left;
+    font-family: "Inter";
+    font-weight: 500;
+    font-size: 16px !important;
+    line-height: 150%;
+    letter-spacing: 0%;
+    color: var(--color-text-darker);
+}

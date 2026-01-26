@@ -8,11 +8,13 @@ import mainImg from "../../assets/images/main-img.jpg";
 import { openModal } from "../../state/slices/modalSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useTranslation } from "react-i18next";
+import { useNavigate } from "react-router-dom";
 
 function MainSection() {
     const { t } = useTranslation();
     const dispatch = useDispatch();
     const user = useSelector((state) => state.user);
+    const navigate = useNavigate();
 
     const onStartClick = () => {
         dispatch(openModal({ type: "register" }));
@@ -49,7 +51,9 @@ function MainSection() {
                         )}
                         <Button
                             title={t("home.hero.browseButton")}
-                            onClick={() => {}}
+                            onClick={() => {
+                                navigate("/catalog");
+                            }}
                             styles={{
                                 ...transparentBtn,
                                 width: "200px",

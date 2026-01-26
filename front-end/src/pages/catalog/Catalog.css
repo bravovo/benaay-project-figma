@@ -1,0 +1,10 @@
+.catalog-container {
+}
+
+.cats-aside {
+    padding-top: 49px;
+    width: 311px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
