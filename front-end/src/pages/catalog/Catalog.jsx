@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { setRoute } from "../../state/slices/routeSlice";
 import Products from "../../components/products/Products";
 import { AuthFormsLayout } from "../../features/auth/index";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Filter from "../../components/catalogCategory/filter/Filter";
 import { useProductFilters } from "../../hooks/useProductFilters";
 
@@ -32,12 +32,14 @@ function Catalog() {
 
     const [priceRangeValues, setPriceRangeValues] = useState([RANGE_MIN, RANGE_MAX]);
 
-    dispatch(
-        setRoute({
-            currentRoute: "/catalog",
-            routes: { title: "Catalogue", path: "/catalog" },
-        })
-    );
+    useEffect(() => {
+        dispatch(
+            setRoute({
+                currentRoute: "/catalog",
+                routes: { title: "Catalogue", path: "/catalog" },
+            })
+        );
+    }, [dispatch]);
 
     // Use the custom hook to get filtered products
     const filteredProducts = useProductFilters(products, selectedFilters);
