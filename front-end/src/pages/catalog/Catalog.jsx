@@ -10,14 +10,27 @@ import Products from "../../components/products/Products";
 import { AuthFormsLayout } from "../../features/auth/index";
 import { useState } from "react";
 import Filter from "../../components/catalogCategory/filter/Filter";
+import { useProductFilters } from "../../hooks/useProductFilters";
 
-import { categories, products } from "../../data/constants";
+import { categories, products, RANGE_MIN, RANGE_MAX } from "../../data/constants";
 
 function Catalog() {
-    const [price, setPrice] = useState();
-    const [filters, setFilters] = useState({});
-    const [filteredProducts, setFilteredProducts] = useState(products);
     const dispatch = useDispatch();
+
+    // Initialize state for selected filters
+    const [selectedFilters, setSelectedFilters] = useState({
+        categories: {
+            category1: [],
+            category2: [],
+            category3: [],
+            category4: [],
+            category5: [],
+            category6: [],
+        },
+        priceRange: { min: RANGE_MIN, max: RANGE_MAX },
+    });
+
+    const [priceRangeValues, setPriceRangeValues] = useState([RANGE_MIN, RANGE_MAX]);
 
     dispatch(
         setRoute({
@@ -26,7 +39,81 @@ function Catalog() {
         })
     );
 
-    const filterProducts = () => {};
+    // Use the custom hook to get filtered products
+    const filteredProducts = useProductFilters(products, selectedFilters);
+
+    // Handler for checkbox changes
+    const handleCheckboxChange = (categoryIndex, itemName, isChecked) => {
+        const categoryKey = `category${categoryIndex}`;
+        
+        setSelectedFilters((prev) => {
+            const updatedCategories = { ...prev.categories };
+            
+            if (isChecked) {
+                // Add item to selected filters
+                updatedCategories[categoryKey] = [
+                    ...updatedCategories[categoryKey],
+                    itemName,
+                ];
+            } else {
+                // Remove item from selected filters
+                updatedCategories[categoryKey] = updatedCategories[categoryKey].filter(
+                    (item) => item !== itemName
+                );
+            }
+            
+            return {
+                ...prev,
+                categories: updatedCategories,
+            };
+        });
+    };
+
+    // Handler for price range changes
+    const handlePriceRangeChange = (values) => {
+        setPriceRangeValues(values);
+        setSelectedFilters((prev) => ({
+            ...prev,
+            priceRange: { min: values[0], max: values[1] },
+        }));
+    };
+
+    // Handler for removing a single filter tag
+    const handleRemoveFilter = (categoryKey, itemName) => {
+        setSelectedFilters((prev) => {
+            const updatedCategories = { ...prev.categories };
+            updatedCategories[categoryKey] = updatedCategories[categoryKey].filter(
+                (item) => item !== itemName
+            );
+            
+            return {
+                ...prev,
+                categories: updatedCategories,
+            };
+        });
+    };
+
+    // Handler for deleting all filters
+    const handleDeleteAllFilters = () => {
+        setSelectedFilters({
+            categories: {
+                category1: [],
+                category2: [],
+                category3: [],
+                category4: [],
+                category5: [],
+                category6: [],
+            },
+            priceRange: { min: RANGE_MIN, max: RANGE_MAX },
+        });
+        setPriceRangeValues([RANGE_MIN, RANGE_MAX]);
+    };
+
+    // Map category index from categories array to categoryKey
+    const getCategoryIndexFromTitle = (title) => {
+        const match = title.match(/Category (\d+)/);
+        return match ? parseInt(match[1]) : null;
+    };
 
     return (
         <>
@@ -39,15 +126,30 @@ function Catalog() {
                 <Container>
                     <div className="catalog-layout">
                         <aside className="cats-aside">
-                            <Filter />
-                            {categories.map((cat, i) => (
-                                <CatalogCategory
-                                    key={i + 1}
-                                    title={cat.title}
-                                    items={cat.items ? cat.items : []}
-                                    type={cat.type}
-                                />
-                            ))}
+                            <Filter 
+                                deleteAll={handleDeleteAllFilters}
+                                selectedFilters={selectedFilters}
+                                onRemoveFilter={handleRemoveFilter}
+                            />
+                            {categories.map((cat, i) => {
+                                const categoryIndex = getCategoryIndexFromTitle(cat.title);
+                                const categoryKey = categoryIndex ? `category${categoryIndex}` : null;
+                                
+                                return (
+                                    <CatalogCategory
+                                        key={i + 1}
+                                        title={cat.title}
+                                        items={cat.items ? cat.items : []}
+                                        type={cat.type}
+                                        selectedItems={categoryKey ? selectedFilters.categories[categoryKey] : []}
+                                        onCheckboxChange={(itemName, isChecked) => 
+                                            handleCheckboxChange(categoryIndex, itemName, isChecked)
+                                        }
+                                        rangeValues={priceRangeValues}
+                                        onRangeChange={handlePriceRangeChange}
+                                    />
+                                );
+                            })}
                         </aside>
                         <section className="catalog-products">
                             <Products products={filteredProducts} />
