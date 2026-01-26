@@ -7,6 +7,7 @@ import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import { useDispatch } from "react-redux";
 import { setRoute } from "../../state/slices/routeSlice";
 import Products from "../../components/products/Products";
+import { AuthFormsLayout } from "../../features/auth/index";
 
 const items = [
     {
@@ -126,6 +127,7 @@ function Catalog() {
 
     return (
         <>
+            <AuthFormsLayout />
             <Header />
             <main className="main catalog-container">
                 <Container>

@@ -47,7 +47,7 @@ function Product({ product }) {
             <div className="product-info">
                 <div>
                     <p className="product-name">{product.name}</p>
-                    <p className="product-price">{renderPrice()}</p>
+                    {renderPrice()}
                 </div>
                 <button className="add-to-cart-button">
                     <img src={shopBag} alt="Add to cart" />
