@@ -8,114 +8,15 @@ import { useDispatch } from "react-redux";
 import { setRoute } from "../../state/slices/routeSlice";
 import Products from "../../components/products/Products";
 import { AuthFormsLayout } from "../../features/auth/index";
+import { useState } from "react";
+import Filter from "../../components/catalogCategory/filter/Filter";
 
-const items = [
-    {
-        name: "Item 1",
-        count: 10,
-    },
-    {
-        name: "Item 2",
-        count: 5,
-    },
-    {
-        name: "Item 3",
-        count: 8,
-    },
-    {
-        name: "Item 1",
-        count: 10,
-    },
-    {
-        name: "Item 2",
-        count: 5,
-    },
-    {
-        name: "Item 3",
-        count: 8,
-    },
-    {
-        name: "Item 1",
-        count: 10,
-    },
-    {
-        name: "Item 2",
-        count: 5,
-    },
-    {
-        name: "Item 3",
-        count: 8,
-    },
-    {
-        name: "Item 1",
-        count: 10,
-    },
-    {
-        name: "Item 2",
-        count: 5,
-    },
-    {
-        name: "Item 3",
-        count: 8,
-    },
-    {
-        name: "Item 1",
-        count: 10,
-    },
-    {
-        name: "Item 2",
-        count: 5,
-    },
-    {
-        name: "Item 3",
-        count: 8,
-    },
-    {
-        name: "Item 1",
-        count: 10,
-    },
-    {
-        name: "Item 2",
-        count: 5,
-    },
-    {
-        name: "Item 3",
-        count: 8,
-    },
-];
-
-const cats = [
-    {
-        title: "Category 1",
-        type: "checkbox",
-    },
-    {
-        title: "Category 2",
-        type: "checkbox",
-    },
-    {
-        title: "Price",
-        type: "price",
-    },
-    {
-        title: "Category 3",
-        type: "checkbox",
-    },
-    {
-        title: "Category 4",
-        type: "checkbox",
-    },
-    {
-        title: "Category 5",
-        type: "checkbox",
-    },
-    {
-        title: "Category 6",
-        type: "checkbox",
-    },
-];
+import { categories, products } from "../../data/constants";
 
 function Catalog() {
+    const [price, setPrice] = useState();
+    const [filters, setFilters] = useState({});
+    const [filteredProducts, setFilteredProducts] = useState(products);
     const dispatch = useDispatch();
 
     dispatch(
@@ -124,6 +25,8 @@ function Catalog() {
             routes: { title: "Catalogue", path: "/catalog" },
         })
     );
+
+    const filterProducts = () => {};
 
     return (
         <>
@@ -136,17 +39,18 @@ function Catalog() {
                 <Container>
                     <div className="catalog-layout">
                         <aside className="cats-aside">
-                            {cats.map((cat, i) => (
+                            <Filter />
+                            {categories.map((cat, i) => (
                                 <CatalogCategory
                                     key={i + 1}
                                     title={cat.title}
-                                    items={items}
+                                    items={cat.items ? cat.items : []}
                                     type={cat.type}
                                 />
                             ))}
                         </aside>
                         <section className="catalog-products">
-                            <Products />
+                            <Products products={filteredProducts} />
                         </section>
                     </div>
                 </Container>

@@ -1,0 +1,34 @@
+.filter-container {
+    padding: 24px;
+    display: flex;
+    gap: 0;
+    align-items: center;
+}
+
+.filter-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    align-self: stretch;
+}
+
+.filter-text button {
+    width: 91px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: none;
+    background-color: transparent;
+    font-family: "Inter";
+    outline: none;
+    color: #e10f0f;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 150%;
+    text-decoration: underline;
+}
+
+.filter-text h2 {
+    width: 164px;
+}

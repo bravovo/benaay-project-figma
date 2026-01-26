@@ -2,14 +2,7 @@ import "./Products.css";
 
 import Product from "./Product/Product";
 
-const product = {
-    name: "Product Name Name Name Name",
-    img: "c220dc213f36f39ad21c46ce0b958cc0c5202237.jpg",
-    price: 140,
-    discount: 0.2,
-};
-
-function Products() {
+function Products({ products }) {
     return (
         <div className="products-container">
             <div className="products-text-container">
@@ -21,16 +14,10 @@ function Products() {
                 </div>
             </div>
             <div className="products-cards">
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
-                <Product product={product} />
+                {products &&
+                    products.map((product, index) => {
+                        return <Product key={index} product={product} />;
+                    })}
             </div>
         </div>
     );
