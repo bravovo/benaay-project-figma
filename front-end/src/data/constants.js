@@ -55,3 +55,6 @@ export const getCategoriesConfig = (t) => [
         link: "#",
     },
 ];
+
+export const RANGE_MAX = 16000;
+export const RANGE_MIN = 10;
