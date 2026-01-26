@@ -35,9 +35,9 @@ function Filter({ deleteAll, selectedFilters, onRemoveFilter }) {
                 )}
             </div>
             <div className="filter-tags">
-                {filterTags.map((tag, index) => (
+                {filterTags.map((tag) => (
                     <button
-                        key={index}
+                        key={`${tag.categoryKey}-${tag.itemName}`}
                         className="filter-tag"
                         onClick={() => onRemoveFilter(tag.categoryKey, tag.itemName)}
                     >
