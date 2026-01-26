@@ -12,6 +12,34 @@
     justify-content: space-between;
 }
 
+.sorting-button {
+    color: var(--color-text-darker);
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.active-sorting-button {
+    color: #206bb6;
+    text-align: center;
+
+    font-family: Inter;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    border-bottom: 1px solid #206bb6;
+}
+
 .products-text-container h2 {
     font-family: "Onest";
     font-weight: 500;
@@ -37,19 +65,7 @@
     flex-direction: row;
     gap: 12px;
     align-items: center;
-}
-
-.products-sorting button {
-    color: var(--color-text-darker);
-    background-color: transparent;
-    border: none;
-
-    font-family: "Inter";
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 150%;
-    letter-spacing: 0%;
-    text-align: center;
+    justify-content: center;
 }
 
 .products-cards {
