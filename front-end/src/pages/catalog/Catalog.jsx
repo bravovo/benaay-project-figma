@@ -6,6 +6,7 @@ import { Container } from "../../components/layout";
 import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
 import { useDispatch } from "react-redux";
 import { setRoute } from "../../state/slices/routeSlice";
+import Products from "../../components/products/Products";
 
 const items = [
     {
@@ -131,18 +132,22 @@ function Catalog() {
                     <Breadcrumbs />
                 </Container>
                 <Container>
-                    <aside className="cats-aside">
-                        {cats.map((cat, i) => (
-                            <CatalogCategory
-                                key={i + 1}
-                                title={cat.title}
-                                items={items}
-                                type={cat.type}
-                            />
-                        ))}
-                    </aside>
+                    <div className="catalog-layout">
+                        <aside className="cats-aside">
+                            {cats.map((cat, i) => (
+                                <CatalogCategory
+                                    key={i + 1}
+                                    title={cat.title}
+                                    items={items}
+                                    type={cat.type}
+                                />
+                            ))}
+                        </aside>
+                        <section className="catalog-products">
+                            <Products />
+                        </section>
+                    </div>
                 </Container>
-                <Container></Container>
             </main>
             <Footer />
         </>
