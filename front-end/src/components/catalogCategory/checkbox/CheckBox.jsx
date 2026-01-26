@@ -1,11 +1,15 @@
 import "./CheckBox.css";
 
-function CheckBox({ item }) {
+function CheckBox({ item, checked, onChange }) {
     return (
         <div className="checkbox-container">
             <div className="checkbox-name">
                 <label className="checkbox">
-                    <input type="checkbox" />
+                    <input 
+                        type="checkbox" 
+                        checked={checked || false}
+                        onChange={(e) => onChange(item.name, e.target.checked)}
+                    />
                     <span className="checkbox-box"></span>
                 </label>
                 <label htmlFor={item} className="checkbox-label">

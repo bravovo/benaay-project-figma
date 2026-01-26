@@ -1,6 +1,6 @@
 import "./Products.css";
 
-import Product from "./Product/Product";
+import Product from "./product/Product";
 
 function Products({ products }) {
     return (

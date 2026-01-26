@@ -1,8 +1,9 @@
 .filter-container {
     padding: 24px;
     display: flex;
-    gap: 0;
-    align-items: center;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
 }
 
 .filter-text {
@@ -27,8 +28,42 @@
     font-weight: 600;
     line-height: 150%;
     text-decoration: underline;
+    cursor: pointer;
 }
 
 .filter-text h2 {
     width: 164px;
+}
+
+.filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    width: 100%;
+}
+
+.filter-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: 1px solid #e5e7eb;
+    background-color: #f9fafb;
+    font-family: "Inter";
+    font-size: 14px;
+    font-weight: 500;
+    color: #374151;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.filter-tag:hover {
+    background-color: #f3f4f6;
+    border-color: #d1d5db;
+}
+
+.filter-tag img {
+    width: 12px;
+    height: 12px;
 }

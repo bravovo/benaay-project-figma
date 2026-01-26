@@ -7,10 +7,9 @@ import { Range } from "react-range";
 
 import { RANGE_MAX, RANGE_MIN } from "../../data/constants";
 
-function CatalogCategory({ title, items, type }) {
+function CatalogCategory({ title, items, type, selectedItems, onCheckboxChange, rangeValues, onRangeChange }) {
     const [isOpen, setIsOpen] = useState(false);
     const [filteredItems, setFilteredItems] = useState(items);
-    const [rangeValues, setRangeValues] = useState([RANGE_MIN, RANGE_MAX]);
 
     const handleToggle = () => {
         setFilteredItems(items);
@@ -38,7 +37,12 @@ function CatalogCategory({ title, items, type }) {
             return (
                 <div className="cat-content">
                     {filteredItems.map((item, index) => (
-                        <CheckBox key={index} item={item} />
+                        <CheckBox 
+                            key={index} 
+                            item={item}
+                            checked={selectedItems?.includes(item.name)}
+                            onChange={onCheckboxChange}
+                        />
                     ))}
                 </div>
             );
@@ -57,7 +61,7 @@ function CatalogCategory({ title, items, type }) {
                                     const value = getFormattedValue(
                                         Number(e.target.value)
                                     );
-                                    setRangeValues((prev) => [value, prev[1]]);
+                                    onRangeChange([value, rangeValues[1]]);
                                 }}
                             />
                         </span>
@@ -72,7 +76,7 @@ function CatalogCategory({ title, items, type }) {
                                     const value = getFormattedValue(
                                         Number(e.target.value)
                                     );
-                                    setRangeValues((prev) => [prev[0], value]);
+                                    onRangeChange([rangeValues[0], value]);
                                 }}
                             />
                         </span>
@@ -84,7 +88,7 @@ function CatalogCategory({ title, items, type }) {
                             min={RANGE_MIN}
                             max={RANGE_MAX}
                             values={rangeValues}
-                            onChange={(values) => setRangeValues(values)}
+                            onChange={(values) => onRangeChange(values)}
                             renderTrack={({ props, children }) => (
                                 <div
                                     {...props}
