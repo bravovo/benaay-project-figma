@@ -3,6 +3,9 @@ import { Header } from "../../features/header";
 import { Footer } from "../../features/footer";
 import CatalogCategory from "../../components/catalogCategory/CatalogCategory";
 import { Container } from "../../components/layout";
+import Breadcrumbs from "../../components/breadcrumbs/Breadcrumbs";
+import { useDispatch } from "react-redux";
+import { setRoute } from "../../state/slices/routeSlice";
 
 const items = [
     {
@@ -111,10 +114,22 @@ const cats = [
 ];
 
 function Catalog() {
+    const dispatch = useDispatch();
+
+    dispatch(
+        setRoute({
+            currentRoute: "/catalog",
+            routes: { title: "Catalogue", path: "/catalog" },
+        })
+    );
+
     return (
         <>
             <Header />
             <main className="main catalog-container">
+                <Container>
+                    <Breadcrumbs />
+                </Container>
                 <Container>
                     <aside className="cats-aside">
                         {cats.map((cat, i) => (
