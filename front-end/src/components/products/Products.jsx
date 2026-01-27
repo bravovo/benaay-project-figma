@@ -3,6 +3,8 @@ import "./Products.css";
 import Product from "./Product/Product";
 import { useMemo, useState } from "react";
 
+import filter from "../../assets/icons/catalog/filter.svg";
+
 function Products({ products }) {
     const [sortType, setSortType] = useState("expensive");
 
@@ -37,25 +39,30 @@ function Products({ products }) {
                 <h2>{sorted.length} products available</h2>
                 <div className="products-sorting">
                     <p>Sorting:</p>
-                    <button
-                        onClick={() => setSortType("expensive")}
-                        className={`sorting-button ${
-                            sortType === "expensive"
-                                ? "active-sorting-button"
-                                : null
-                        }`}
-                    >
-                        From more expensive
-                    </button>
-                    <button
-                        onClick={() => setSortType("cheaper")}
-                        className={`sorting-button ${
-                            sortType === "expensive"
-                                ? null
-                                : "active-sorting-button"
-                        }`}
-                    >
-                        From cheaper
+                    <div className="sort-buttons">
+                        <button
+                            onClick={() => setSortType("expensive")}
+                            className={`sorting-button ${
+                                sortType === "expensive"
+                                    ? "active-sorting-button"
+                                    : null
+                            }`}
+                        >
+                            From more expensive
+                        </button>
+                        <button
+                            onClick={() => setSortType("cheaper")}
+                            className={`sorting-button ${
+                                sortType === "expensive"
+                                    ? null
+                                    : "active-sorting-button"
+                            }`}
+                        >
+                            From cheaper
+                        </button>
+                    </div>
+                    <button className="filter-adapt-button">
+                        <img src={filter} alt="Filter products" />
                     </button>
                 </div>
             </div>

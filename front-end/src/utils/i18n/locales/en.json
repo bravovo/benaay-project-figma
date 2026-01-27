@@ -135,5 +135,8 @@
     "search": {
         "placeholder": "Search...",
         "ariaLabel": "Search products"
+    },
+    "filterModal": {
+        "title": "Filter"
     }
 }
