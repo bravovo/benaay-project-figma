@@ -101,7 +101,7 @@ function FilterModal({
 
         setTempSelectedFilters({
             categories: resetCategories,
-            priceRange: { min: priceRangeValues[0], max: priceRangeValues[1] },
+            priceRange: { ...selectedFilters.priceRange },
         });
         setTempPriceRangeValues([...priceRangeValues]);
     };
