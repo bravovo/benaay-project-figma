@@ -11,6 +11,8 @@ import { AuthFormsLayout } from "../../features/auth/index";
 import { useState, useEffect } from "react";
 import Filter from "../../components/catalogCategory/filter/Filter";
 import { useProductFilters } from "../../hooks/useProductFilters";
+import { useCategoryProductCounts } from "../../hooks/useCategoryProductCounts";
+import FilterModal from "../../components/filterModal/FilterModal";
 
 import {
     categories,
@@ -40,6 +42,9 @@ function Catalog() {
         RANGE_MAX,
     ]);
 
+    // State for filter modal visibility
+    const [isFilterModalOpen, setIsFilterModalOpen] = useState(false);
+
     useEffect(() => {
         dispatch(
             setRoute({
@@ -51,6 +56,9 @@ function Catalog() {
 
     // Use the custom hook to get filtered products
     const filteredProducts = useProductFilters(products, selectedFilters);
+
+    // Calculate product counts for each category item
+    const categoryCounts = useCategoryProductCounts(products, categories);
 
     // Handler for checkbox changes
     const handleCheckboxChange = (categoryIndex, itemName, isChecked) => {
@@ -125,6 +133,43 @@ function Catalog() {
         return match ? parseInt(match[1]) : null;
     };
 
+    // Handler for opening filter modal
+    const handleOpenFilterModal = () => {
+        setIsFilterModalOpen(true);
+    };
+
+    // Handler for closing filter modal
+    const handleCloseFilterModal = () => {
+        setIsFilterModalOpen(false);
+    };
+
+    // Handler for applying filters from modal
+    const handleApplyFilters = (newFilters, newPriceRangeValues) => {
+        setSelectedFilters(newFilters);
+        setPriceRangeValues(newPriceRangeValues);
+    };
+
+    // Add product counts to category items
+    const getCategoriesWithCounts = () => {
+        return categories.map((category, categoryIndex) => {
+            if (category.type === "checkbox" && category.items) {
+                const categoryKey = `category${categoryIndex + 1}`;
+                const itemsWithCounts = category.items.map((item) => ({
+                    ...item,
+                    count: categoryCounts[`${categoryKey}-${item.name}`] || 0,
+                }));
+
+                return {
+                    ...category,
+                    items: itemsWithCounts,
+                };
+            }
+            return category;
+        });
+    };
+
+    const categoriesWithCounts = getCategoriesWithCounts();
+
     return (
         <>
             <AuthFormsLayout />
@@ -141,7 +186,7 @@ function Catalog() {
                                 selectedFilters={selectedFilters}
                                 onRemoveFilter={handleRemoveFilter}
                             />
-                            {categories.map((cat, i) => {
+                            {categoriesWithCounts.map((cat, i) => {
                                 const categoryIndex = getCategoryIndexFromTitle(
                                     cat.title
                                 );
@@ -179,12 +224,25 @@ function Catalog() {
                             })}
                         </aside>
                         <section className="catalog-products">
-                            <Products products={filteredProducts} />
+                            <Products
+                                products={filteredProducts}
+                                onOpenFilterModal={handleOpenFilterModal}
+                            />
                         </section>
                     </div>
                 </Container>
             </main>
             <Footer />
+            {isFilterModalOpen && (
+                <FilterModal
+                    onClose={handleCloseFilterModal}
+                    categories={categories}
+                    products={products}
+                    selectedFilters={selectedFilters}
+                    onApplyFilters={handleApplyFilters}
+                    priceRangeValues={priceRangeValues}
+                />
+            )}
         </>
     );
 }
