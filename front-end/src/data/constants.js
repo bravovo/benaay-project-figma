@@ -193,8 +193,8 @@ export const products = [
     {
         name: "Product 1",
         img: "c220dc213f36f39ad21c46ce0b958cc0c5202237.jpg",
-        price: 120,
-        discount: 0.15,
+        price: 320,
+        discount: 0.5,
         category1: "cat1_item3",
         category2: "cat2_item7",
         category3: "cat3_item2",

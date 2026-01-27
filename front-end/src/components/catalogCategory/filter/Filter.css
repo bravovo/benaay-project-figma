@@ -2,8 +2,9 @@
     padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    justify-content: space-between;
     align-items: flex-start;
+    max-height: fit-content;
 }
 
 .filter-text {
@@ -32,7 +33,7 @@
 }
 
 .filter-text h2 {
-    width: 164px;
+    width: 70px;
 }
 
 .filter-tags {

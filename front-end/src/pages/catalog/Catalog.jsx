@@ -12,7 +12,12 @@ import { useState, useEffect } from "react";
 import Filter from "../../components/catalogCategory/filter/Filter";
 import { useProductFilters } from "../../hooks/useProductFilters";
 
-import { categories, products, RANGE_MIN, RANGE_MAX } from "../../data/constants";
+import {
+    categories,
+    products,
+    RANGE_MIN,
+    RANGE_MAX,
+} from "../../data/constants";
 
 function Catalog() {
     const dispatch = useDispatch();
@@ -30,7 +35,10 @@ function Catalog() {
         priceRange: { min: RANGE_MIN, max: RANGE_MAX },
     });
 
-    const [priceRangeValues, setPriceRangeValues] = useState([RANGE_MIN, RANGE_MAX]);
+    const [priceRangeValues, setPriceRangeValues] = useState([
+        RANGE_MIN,
+        RANGE_MAX,
+    ]);
 
     useEffect(() => {
         dispatch(
@@ -47,10 +55,10 @@ function Catalog() {
     // Handler for checkbox changes
     const handleCheckboxChange = (categoryIndex, itemName, isChecked) => {
         const categoryKey = `category${categoryIndex}`;
-        
+
         setSelectedFilters((prev) => {
             const updatedCategories = { ...prev.categories };
-            
+
             if (isChecked) {
                 // Add item to selected filters
                 updatedCategories[categoryKey] = [
@@ -59,11 +67,11 @@ function Catalog() {
                 ];
             } else {
                 // Remove item from selected filters
-                updatedCategories[categoryKey] = updatedCategories[categoryKey].filter(
-                    (item) => item !== itemName
-                );
+                updatedCategories[categoryKey] = updatedCategories[
+                    categoryKey
+                ].filter((item) => item !== itemName);
             }
-            
+
             return {
                 ...prev,
                 categories: updatedCategories,
@@ -84,10 +92,10 @@ function Catalog() {
     const handleRemoveFilter = (categoryKey, itemName) => {
         setSelectedFilters((prev) => {
             const updatedCategories = { ...prev.categories };
-            updatedCategories[categoryKey] = updatedCategories[categoryKey].filter(
-                (item) => item !== itemName
-            );
-            
+            updatedCategories[categoryKey] = updatedCategories[
+                categoryKey
+            ].filter((item) => item !== itemName);
+
             return {
                 ...prev,
                 categories: updatedCategories,
@@ -128,24 +136,41 @@ function Catalog() {
                 <Container>
                     <div className="catalog-layout">
                         <aside className="cats-aside">
-                            <Filter 
+                            <Filter
                                 deleteAll={handleDeleteAllFilters}
                                 selectedFilters={selectedFilters}
                                 onRemoveFilter={handleRemoveFilter}
                             />
                             {categories.map((cat, i) => {
-                                const categoryIndex = getCategoryIndexFromTitle(cat.title);
-                                const categoryKey = categoryIndex ? `category${categoryIndex}` : null;
-                                
+                                const categoryIndex = getCategoryIndexFromTitle(
+                                    cat.title
+                                );
+                                const categoryKey = categoryIndex
+                                    ? `category${categoryIndex}`
+                                    : null;
+
                                 return (
                                     <CatalogCategory
                                         key={i + 1}
                                         title={cat.title}
                                         items={cat.items ? cat.items : []}
                                         type={cat.type}
-                                        selectedItems={categoryKey ? selectedFilters.categories[categoryKey] : []}
-                                        onCheckboxChange={(itemName, isChecked) => 
-                                            handleCheckboxChange(categoryIndex, itemName, isChecked)
+                                        selectedItems={
+                                            categoryKey
+                                                ? selectedFilters.categories[
+                                                      categoryKey
+                                                  ]
+                                                : []
+                                        }
+                                        onCheckboxChange={(
+                                            itemName,
+                                            isChecked
+                                        ) =>
+                                            handleCheckboxChange(
+                                                categoryIndex,
+                                                itemName,
+                                                isChecked
+                                            )
                                         }
                                         rangeValues={priceRangeValues}
                                         onRangeChange={handlePriceRangeChange}

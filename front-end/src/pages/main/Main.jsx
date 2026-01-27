@@ -11,11 +11,14 @@ import { Header } from "../../features/header/index";
 import { AuthFormsLayout } from "../../features/auth/index";
 import { useDispatch } from "react-redux";
 import { resetRoute } from "../../state/slices/routeSlice";
+import { useEffect } from "react";
 
 function MainPage() {
     const dispatch = useDispatch();
 
-    dispatch(resetRoute());
+    useEffect(() => {
+        dispatch(resetRoute());
+    }, [dispatch]);
 
     return (
         <>

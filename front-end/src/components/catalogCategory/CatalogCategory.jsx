@@ -7,7 +7,15 @@ import { Range } from "react-range";
 
 import { RANGE_MAX, RANGE_MIN } from "../../data/constants";
 
-function CatalogCategory({ title, items, type, selectedItems, onCheckboxChange, rangeValues, onRangeChange }) {
+function CatalogCategory({
+    title,
+    items,
+    type,
+    selectedItems,
+    onCheckboxChange,
+    rangeValues,
+    onRangeChange,
+}) {
     const [isOpen, setIsOpen] = useState(false);
     const [filteredItems, setFilteredItems] = useState(items);
 
@@ -37,8 +45,8 @@ function CatalogCategory({ title, items, type, selectedItems, onCheckboxChange, 
             return (
                 <div className="cat-content">
                     {filteredItems.map((item, index) => (
-                        <CheckBox 
-                            key={index} 
+                        <CheckBox
+                            key={index}
                             item={item}
                             checked={selectedItems?.includes(item.name)}
                             onChange={onCheckboxChange}

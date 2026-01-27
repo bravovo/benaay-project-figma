@@ -9,9 +9,25 @@ function Products({ products }) {
     const sorted = useMemo(() => {
         let sortedProducts = [...products];
         if (sortType === "expensive") {
-            return sortedProducts.sort((a, b) => b.price - a.price);
+            return sortedProducts.sort((a, b) => {
+                let priceA = a.discount
+                    ? a.price - a.price * a.discount
+                    : a.price;
+                let priceB = b.discount
+                    ? b.price - b.price * b.discount
+                    : b.price;
+                return priceB - priceA;
+            });
         } else if (sortType === "cheaper") {
-            return sortedProducts.sort((a, b) => a.price - b.price);
+            return sortedProducts.sort((a, b) => {
+                let priceA = a.discount
+                    ? a.price - a.price * a.discount
+                    : a.price;
+                let priceB = b.discount
+                    ? b.price - b.price * b.discount
+                    : b.price;
+                return priceA - priceB;
+            });
         }
     }, [products, sortType]);
 

@@ -18,6 +18,7 @@ import { openModal } from "../../../../state/slices/modalSlice";
 import menu from "../../assets/menu.svg";
 import HeaderMenu from "../headerMenu/HeaderMenu";
 import { useTranslation } from "react-i18next";
+import { Link } from "react-router-dom";
 
 function Header() {
     const { t } = useTranslation();
@@ -56,8 +57,8 @@ function Header() {
             <header className="header">
                 <Container>
                     <div className="header-container">
-                        <a
-                            href="#"
+                        <Link
+                            to={"/"}
                             style={{ textDecoration: "none" }}
                             className="icon-container"
                         >
@@ -67,7 +68,7 @@ function Header() {
                                 className="header-icon"
                             />
                             {t("appTitle")}
-                        </a>
+                        </Link>
                         <div className="header-links">
                             <a href="#">{t("home.header.link1")}</a>
                             <a href="#">{t("home.header.link2")}</a>
