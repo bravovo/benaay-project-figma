@@ -2,7 +2,6 @@ import "./FilterModal.css";
 import { useState, useEffect } from "react";
 import CatalogCategory from "../catalogCategory/CatalogCategory";
 import closeIcon from "../../assets/icons/x.svg";
-import trash from "../../assets/icons/catalog/trash-2.svg";
 import { useCategoryProductCounts } from "../../hooks/useCategoryProductCounts";
 
 function FilterModal({
@@ -19,7 +18,9 @@ function FilterModal({
         priceRange: { ...selectedFilters.priceRange },
     });
 
-    const [tempPriceRangeValues, setTempPriceRangeValues] = useState([...priceRangeValues]);
+    const [tempPriceRangeValues, setTempPriceRangeValues] = useState([
+        ...priceRangeValues,
+    ]);
 
     // Calculate product counts for each category item
     const categoryCounts = useCategoryProductCounts(products, categories);
@@ -140,11 +141,14 @@ function FilterModal({
         return match ? parseInt(match[1]) : null;
     };
 
+    const checkboxIndexes = [6, 5, 4, 3, 2, 1];
+
     // Add product counts to category items
     const getCategoriesWithCounts = () => {
-        return categories.map((category, categoryIndex) => {
+        return categories.map((category) => {
             if (category.type === "checkbox" && category.items) {
-                const categoryKey = `category${categoryIndex + 1}`;
+                console.log("categoryCounts:", categoryCounts);
+                const categoryKey = `category${checkboxIndexes.pop()}`;
                 const itemsWithCounts = category.items.map((item) => ({
                     ...item,
                     count: categoryCounts[`${categoryKey}-${item.name}`] || 0,
@@ -179,14 +183,6 @@ function FilterModal({
                     {/* Active filter tags */}
                     {filterTags.length > 0 && (
                         <div className="filter-modal-tags-section">
-                            <div className="filter-modal-tags-header">
-                                <button
-                                    onClick={handleDeleteAllFilters}
-                                    className="filter-delete-button"
-                                >
-                                    Delete all <img src={trash} alt="Delete all" />
-                                </button>
-                            </div>
                             <div className="filter-tags">
                                 {filterTags.map((tag) => (
                                     <button
@@ -200,7 +196,10 @@ function FilterModal({
                                         }
                                     >
                                         {tag.itemName}
-                                        <img src={closeIcon} alt="Remove filter" />
+                                        <img
+                                            src={closeIcon}
+                                            alt="Remove filter"
+                                        />
                                     </button>
                                 ))}
                             </div>

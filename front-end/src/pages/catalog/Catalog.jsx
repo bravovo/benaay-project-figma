@@ -149,11 +149,14 @@ function Catalog() {
         setPriceRangeValues(newPriceRangeValues);
     };
 
+    const checkboxIndexes = [6, 5, 4, 3, 2, 1];
+
     // Add product counts to category items
     const getCategoriesWithCounts = () => {
-        return categories.map((category, categoryIndex) => {
+        console.log("categoryCounts", categoryCounts);
+        return categories.map((category) => {
             if (category.type === "checkbox" && category.items) {
-                const categoryKey = `category${categoryIndex + 1}`;
+                const categoryKey = `category${checkboxIndexes.pop()}`;
                 const itemsWithCounts = category.items.map((item) => ({
                     ...item,
                     count: categoryCounts[`${categoryKey}-${item.name}`] || 0,
@@ -193,6 +196,8 @@ function Catalog() {
                                 const categoryKey = categoryIndex
                                     ? `category${categoryIndex}`
                                     : null;
+
+                                console.log("CAT", cat);
 
                                 return (
                                     <CatalogCategory

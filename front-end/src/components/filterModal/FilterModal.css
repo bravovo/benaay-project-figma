@@ -34,7 +34,7 @@
     background-color: white;
     width: 100%;
     max-width: 100%;
-    max-height: 90vh;
+    max-height: 95vh;
     display: flex;
     flex-direction: column;
     border-radius: 16px 16px 0 0;
@@ -43,15 +43,19 @@
 }
 
 .filter-modal-header {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 24px;
-    border-bottom: 1px solid var(--color-border-light);
+    padding: 44px 16px 0 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 24px;
 }
 
 .filter-modal-header h2 {
-    font-family: "Onest", sans-serif;
+    font-family: "Inter";
     font-weight: 500;
     font-size: 20px;
     line-height: 120%;
@@ -60,13 +64,13 @@
 }
 
 .filter-modal-close {
+    position: absolute;
+    top: 16px;
+    right: 16px;
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    z-index: 1;
 }
 
 .filter-modal-close img {
@@ -89,25 +93,6 @@
     gap: 12px;
 }
 
-.filter-modal-tags-header {
-    display: flex;
-    justify-content: flex-end;
-}
-
-.filter-delete-button {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    background: transparent;
-    border: none;
-    color: var(--color-text-light-gray);
-    font-family: "Inter", sans-serif;
-    font-size: 14px;
-    font-weight: 400;
-    cursor: pointer;
-    padding: 0;
-}
-
 .filter-delete-button img {
     width: 16px;
     height: 16px;
@@ -121,15 +106,20 @@
 
 .filter-tag {
     display: flex;
+    padding: 4px 8px;
     align-items: center;
     gap: 8px;
-    padding: 6px 12px;
-    background-color: var(--color-border-lighter);
-    border: 1px solid var(--color-border-light);
+
     border-radius: 4px;
-    font-family: "Inter", sans-serif;
+    border: 1px solid #9ca3af;
+    color: #6b7280;
+
+    /* Typography/Body/Medium */
+    font-family: "Inter";
     font-size: 14px;
-    color: var(--color-text-darker);
+    font-style: normal;
+    font-weight: 400;
+    line-height: 150%; /* 21px */
     cursor: pointer;
     transition: background-color 0.2s;
 }
@@ -158,16 +148,26 @@
 }
 
 .filter-modal-delete-all {
+    display: flex;
+    padding: 8px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
+    align-self: stretch;
     flex: 1;
-    padding: 12px 24px;
-    background-color: transparent;
-    border: 1px solid var(--color-border-light);
     border-radius: 8px;
-    font-family: "Inter", sans-serif;
+    background-color: transparent;
+    border: 1px solid var(--Color-System-Error, #e10f0f);
+    color: var(--Color-System-Error, #e10f0f);
+    text-align: center;
+
+    /* Typography/H4 */
+    font-family: Inter;
     font-size: 16px;
+    font-style: normal;
     font-weight: 500;
-    color: var(--color-text-darker);
-    cursor: pointer;
+    line-height: 150%; /* 24px */
     transition: background-color 0.2s;
 }
 
@@ -176,16 +176,27 @@
 }
 
 .filter-modal-apply {
-    flex: 1;
+    display: flex;
+    padding: 12px 24px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    flex: 1 0 0;
     padding: 12px 24px;
     background-color: var(--button-main-color);
+    color: var(--Color-Grayscale-0, #fff);
+    text-align: center;
+
+    /* Typography/H4 */
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%; /* 24px */
     border: none;
     border-radius: 8px;
-    font-family: "Inter", sans-serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: white;
-    cursor: pointer;
+    color: #fff;
+    text-align: center;
     transition: opacity 0.2s;
 }
 

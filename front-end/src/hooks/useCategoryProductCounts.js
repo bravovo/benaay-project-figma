@@ -14,17 +14,21 @@ export const useCategoryProductCounts = (products, categories) => {
 
         const counts = {};
 
+        const checkboxIndexes = [6, 5, 4, 3, 2, 1];
+
         // Initialize counts for all categories and items
-        categories.forEach((category, categoryIndex) => {
+        categories.forEach((category) => {
             if (category.type === "checkbox" && category.items) {
-                const categoryKey = `category${categoryIndex + 1}`;
-                
+                const categoryKey = `category${checkboxIndexes.pop()}`;
+
                 category.items.forEach((item) => {
                     const key = `${categoryKey}-${item.name}`;
                     counts[key] = 0;
                 });
             }
         });
+
+        console.log("COUNTS", counts);
 
         // Count products for each category item
         products.forEach((product) => {
