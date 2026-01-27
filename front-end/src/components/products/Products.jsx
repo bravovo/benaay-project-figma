@@ -1,11 +1,11 @@
 import "./Products.css";
 
-import Product from "./Product/Product";
+import Product from "./product/Product";
 import { useMemo, useState } from "react";
 
 import filter from "../../assets/icons/catalog/filter.svg";
 
-function Products({ products }) {
+function Products({ products, onOpenFilterModal }) {
     const [sortType, setSortType] = useState("expensive");
 
     const sorted = useMemo(() => {
@@ -61,7 +61,7 @@ function Products({ products }) {
                             From cheaper
                         </button>
                     </div>
-                    <button className="filter-adapt-button">
+                    <button className="filter-adapt-button" onClick={onOpenFilterModal}>
                         <img src={filter} alt="Filter products" />
                     </button>
                 </div>
